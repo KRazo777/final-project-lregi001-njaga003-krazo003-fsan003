@@ -16,14 +16,8 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- > * What will be the input/output of your project?
- > * What are the features that the project provides?
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- > 
- > You also need to set up an empty project board using GitHub projects (board view with default columns). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added. All columns should be in the right order.
+> We are creating a note taking application that will allow users to save notes into a file they will be able to access later, to view as well as edit. We plan on using C++ to create our app and if time permits, possibly implement a GUI. We might use certain libraries, like time and filestream, but that will be updated as we go. The input/output of our project is taking in what the user wants to include in their notes, and saving it; while output is accessing the file that they have saved to see what input they had given as well as the last time it had been edited. We will also request them to title the file before they save it which will be how they are going to be able to access files later on. Some of our features will include adding, editing, and deleting notes. Another would be the ability to create folders in the notes app and move notes into those folders. There will be a function to quit the app as well as possibly implement a trash system in which deleted notes may be accessed or permanently deleted.
+
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
