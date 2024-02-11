@@ -16,7 +16,15 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
->	As students we have all faced difficulties in keeping track of lists, due dates, and writing down ideas. This is why we decided to resolve this issue by creating a note taking app. This application will allow users to save notes into a file they will be able to access later, to view as well as edit. It will utilize C++ and if time permits, we will possibly implement a GUI. We would use certain libraries, like time and filestream, but that will be updated as we go. The input/output of our project is taking in what the user wants to include in their notes, and saving it; while output is accessing the file that they have saved to see what input they had given as well as the last time it had been edited. It will also request them to title the file before they save it which will be how they are going to be able to access files later on. Some of our features include adding, editing, and deleting notes. Another would be the ability to create folders in the notes app and move notes into those folders. There will be a function to quit the app as well as possibly implement a trash system in which deleted notes may be accessed or permanently deleted.
+
+Why we are making this: As students we have all faced difficulties in keeping track of lists, due dates, and writing down ideas. This is why we decided to resolve this issue by creating a note taking app. This application will allow users to save notes into a file they will be able to access later, to view as well as edit.
+
+Tools/Technologies: It will utilize C++ and if time permits, we will possibly implement a GUI. We would use certain libraries, like time and filestream, but that will be updated as we go. 
+
+Input/Output: The input/output of our project is taking in what the user wants to include in their notes, and saving it; while output is accessing the file that they have saved to see what input they had given as well as the last time it had been edited. It will also request them to title the file before they save it which will be how they are going to be able to access files later on.
+
+Features: Some of our features include adding, editing, and deleting notes. Another would be the ability to create folders in the notes app and move notes into those folders. There will be a function to quit the app as well as possibly implement a trash system in which deleted notes may be accessed or permanently deleted.
+
 >
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
