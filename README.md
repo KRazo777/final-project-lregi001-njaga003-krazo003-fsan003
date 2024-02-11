@@ -17,7 +17,7 @@
 
 ## Project Description
 
-Why we are making this: As students we have all faced difficulties in keeping track of lists, due dates, and writing down ideas. This is why we decided to resolve this issue by creating a note taking app. This application will allow users to save notes into a file they will be able to access later, to view as well as edit.
+Reason For Making This: As students we have all faced difficulties in keeping track of lists, due dates, and writing down ideas. This is why we decided to resolve this issue by creating a note taking app. This application will allow users to save notes into a file they will be able to access later, to view as well as edit.
 
 Tools/Technologies: It will utilize C++ and if time permits, we will possibly implement a GUI. We would use certain libraries, like time and filestream, but that will be updated as we go. 
 
