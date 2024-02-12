@@ -47,7 +47,7 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
 ### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs and expected output, or any graphical user interface components if applicable (e.g. buttons, text boxes, etc). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
 <img width="450" alt="Screenshot 2024-02-12 011934" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/5a77acb0-50f2-4c70-a2c7-4b5ab34c6efb">
-When the user initially runs the program, they will prompted to enter their username.
+<When the user initially runs the program, they will prompted to enter their username.
 <img width="450" alt="Screenshot 2024-02-12 011955" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/b9d5eb9e-f5d5-40a6-afbd-cf77729309f7">
 <img width="450" alt="Screenshot 2024-02-12 012006" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/fa32adac-3dc3-4a38-a195-8e7b36ddcc84">
 <img width="450" alt="Screenshot 2024-02-12 012014" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/c2eb8e4f-e411-4e2b-b760-39426f4f4f3c">
