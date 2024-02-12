@@ -47,18 +47,29 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
 ### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs and expected output, or any graphical user interface components if applicable (e.g. buttons, text boxes, etc). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
 <img width="450" alt="Screenshot 2024-02-12 011934" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/5a77acb0-50f2-4c70-a2c7-4b5ab34c6efb">
-<When the user initially runs the program, they will prompted to enter their username.
+<p> When the user initially runs the program, they will prompted to enter their username. </p>
 <img width="450" alt="Screenshot 2024-02-12 011955" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/b9d5eb9e-f5d5-40a6-afbd-cf77729309f7">
+<p> Once the user enters their username, this will be prompted with a "folders menu" where they have control over creating, deleting, editing folder titles, opening folders to access notes, as well as the choice to quit the program. </p>
 <img width="450" alt="Screenshot 2024-02-12 012006" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/fa32adac-3dc3-4a38-a195-8e7b36ddcc84">
+<p> If the user enters "n" to create a folder, they will be shown their currently active folders and will be asked to enter a name for their new folder. </p>
 <img width="450" alt="Screenshot 2024-02-12 012014" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/c2eb8e4f-e411-4e2b-b760-39426f4f4f3c">
+<p> If the user chooses "d" to delete a folder, they will be shown their currently active folders and will be asked to enter the name for the folder they want to delete. The folder name must be a currently active folder in order to be deleted. </p>
 <img width="450" alt="Screenshot 2024-02-12 012025" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/3de237b9-2f52-4344-a48c-10dc7ddb1514">
+<p> If the user chooses to edit a folder title, they will be shown their currently active folders and will be asked enter the name of the folder they want to edit. If they enter the name of a currently active folder, they will then be prompted to enter the updated title for the folder. </p>
 <img width="450" alt="Screenshot 2024-02-12 012033" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/acc124ce-8dac-488d-98a5-5e3874670247">
+<p> If the user chooses "o" in the menu to open a folder and enter the name of an active folder, they will be prompted to the "notes menu". Here, they will be shown the name of the folder they are currently in, the currently active notes in the folder, and a set of options for creating, deleting, adding to, and opening notes. They also have the option of returning to the folders menu or quitting the program. </p>
 <img width="450" alt="Screenshot 2024-02-12 012045" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/93435d06-3b0e-4115-ba31-d2fdfd45c873">
+<p> If the user chooses "n" to create a new note, they will be prompted to enter the title for the note and then type anything they wish into their note. </p>
 <img width="450" alt="Screenshot 2024-02-12 012055" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/708f39f3-eea7-4da1-9b4e-dc2165da17af">
+<p> If the user chooses "o" to open a new note and they enter the name of a currently active note, they will be shown the note's title, body, and time of last edit. They will have the option to exit the note and return to the notes menu or quit the program. </p>
 <img width="450" alt="Screenshot 2024-02-12 012106" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/d213ac69-25f4-4828-aa2e-fd3abdc10686">
+<p> If the user chooses "d" to delete a note, they will be shown their active notes and will be prompted to enter the number for the active note they want to delete or enter "c" to cancel the operation and return to the notes menu. </p>
 <img width="450" alt="Screenshot 2024-02-12 012116" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/52036178-0fc5-46ee-9e73-6de490ade2e7">
+<p> If the user chooses "a" to add to an existing note, they will be shown their active notes and prompted to enter the number for the note they want to add to or "c" to cancel the operation. If they enter the number of an active note they will be brought to the next screen ↓ </p>
 <img width="450" alt="Screenshot 2024-02-12 012130" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/b7e78eaf-58e3-442a-86a2-c1ebd906d541">
+<p> After, they enter the number for an active note to add to, they will be shown the current title and body of the note, and will be able to add to the body of the note. </p>
 <img width="450" alt="Screenshot 2024-02-12 012141" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/7d93985e-7623-4acb-baef-f2a4c8150c68">
+<p> If the user chooses "q" to quit the program in either the folders or notes menu, they will be shown a message saying the program was terminated and then the program will exit. </p>
 
 
 ## Class Diagram
