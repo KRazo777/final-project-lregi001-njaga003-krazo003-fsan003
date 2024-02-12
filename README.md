@@ -4,7 +4,7 @@
 # Notetastic
  > Your author list below should include links to all members GitHub (remove existing author).
  
- > Authors: \<[Liam Regina](https://github.com/liamregina), [Nidhi Jagadeesh](https://github.com/n1dh1001), [Kevin Razo](https://github.com/KRazo777), [Francis Miguel San Juan](https://github.com/Mooogy)\>
+ > Authors: \[Liam Regina](https://github.com/liamregina), [Nidhi Jagadeesh](https://github.com/n1dh1001), [Kevin Razo](https://github.com/KRazo777), [Francis Miguel San Juan](https://github.com/Mooogy)\
 
  > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
 
@@ -48,11 +48,25 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
 
 ### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs and expected output, or any graphical user interface components if applicable (e.g. buttons, text boxes, etc). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
+<img width="300" alt="Screenshot 2024-02-12 011934" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/5a77acb0-50f2-4c70-a2c7-4b5ab34c6efb">
+<img width="300" alt="Screenshot 2024-02-12 011955" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/b9d5eb9e-f5d5-40a6-afbd-cf77729309f7">
+<img width="300" alt="Screenshot 2024-02-12 012006" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/fa32adac-3dc3-4a38-a195-8e7b36ddcc84">
+<img width="300" alt="Screenshot 2024-02-12 012014" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/c2eb8e4f-e411-4e2b-b760-39426f4f4f3c">
+<img width="300" alt="Screenshot 2024-02-12 012025" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/3de237b9-2f52-4344-a48c-10dc7ddb1514">
+<img width="300" alt="Screenshot 2024-02-12 012033" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/acc124ce-8dac-488d-98a5-5e3874670247">
+<img width="300" alt="Screenshot 2024-02-12 012045" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/93435d06-3b0e-4115-ba31-d2fdfd45c873">
+<img width="300" alt="Screenshot 2024-02-12 012055" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/708f39f3-eea7-4da1-9b4e-dc2165da17af">
+<img width="300" alt="Screenshot 2024-02-12 012106" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/d213ac69-25f4-4828-aa2e-fd3abdc10686">
+<img width="300" alt="Screenshot 2024-02-12 012116" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/52036178-0fc5-46ee-9e73-6de490ade2e7">
+<img width="300" alt="Screenshot 2024-02-12 012130" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/b7e78eaf-58e3-442a-86a2-c1ebd906d541">
+<img width="300" alt="Screenshot 2024-02-12 012141" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/7d93985e-7623-4acb-baef-f2a4c8150c68">
+
 
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
-![ClassDiagram drawio](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/c93730f9-a8af-48f3-95a8-3ca465b4af10)
 
+
+![ClassDiagram drawio](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/c93730f9-a8af-48f3-95a8-3ca465b4af10)
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
  
