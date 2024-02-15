@@ -25,9 +25,7 @@ Input/Output: The input/output of our project is taking in what the user wants t
 
 Features: Some of our features include adding, editing, and deleting notes. Another would be the ability to create folders in the notes app and move notes into those folders. There will be a function to quit the app as well as possibly implement a trash system in which deleted notes may be accessed or permanently deleted.
 
->
 ## User Interface Specification
- > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
 <img width="464" alt="Screenshot 2024-02-12 011423" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/9f66d436-6c70-4f32-bacd-e06a5f9a61b6">
