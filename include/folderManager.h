@@ -3,23 +3,22 @@
 
 #include <vector>
 #include <string>
+#include "folder.h"
 using namespace std;
 
 class FolderManager {
     private:
-        string userName;
-        char userChoice;
-        vector<string> folders;
+        vector<Folder> folders;
     public:
-        FolderManager(const string& username);
+        FolderManager();
         ~FolderManager();
 
-        void printFolderMenu(const string& username);
         void createFolder(const string& name);
-        void deleteFolder(const string& name);
+        void deleteFolder(const int& fileNum);
         void renameFolder(const string& oldName, const string& newName);
         void printFolders();
-        bool folderExists(const string& name);
+        bool folderIsEmpty();
+        bool folderExists(const int& fileNum);
 };
 
 #endif 

@@ -11,8 +11,11 @@ class Folder {
         string folderName;
         vector<Note> notes; 
     public:
-        Folder(string name);
+        Folder(const string& name);
         ~Folder();
+
+        const string& getFolderName();
+
         void createNote(const string& name);
         void deleteNote(const string& name);
         void addContentToNote(const string& noteName);
