@@ -3,10 +3,8 @@
 Folder::Folder(const string& name): folderName(name) {};
 Folder::~Folder(){};
 
-const string& Folder::getFolderName(){
-    return folderName;
-};
-
+const string& getFolderName();
+void setFolderName(const string& name);
 void Folder::createNote(const string& name){};
 void Folder::deleteNote(const string& name){};
 void Folder::addContentToNote(const string& noteName){};

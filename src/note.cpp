@@ -1,5 +1,7 @@
 #include "../include/note.h"
 
+
+
 //default constructor
 Note::Note(){};
 
@@ -12,6 +14,7 @@ lastEdit(lastEditText)
 Note::~Note(){};
 
 string Note::getTitle(){
+
     return ""; //fix this, just had to add this so complier stopped complaining 
 }; 
 
@@ -22,6 +25,7 @@ string Note::getBody(){
 string Note::getLastEdit(){
     return ""; //fix this, just had to add this so complier stopped complaining
 };
+
 
 void Note::renameTitle(){};
 
@@ -53,3 +57,4 @@ int Note::writeNoteToFile() {
 
     return 0;
 }
+

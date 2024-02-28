@@ -1,8 +1,8 @@
 #include <iostream>
+#include "../include/folder.h"
+#include "../include/note.h"
+#include "../include/folderManager.h"
 #include <cctype> 
-#include "folder.cpp"
-#include "note.cpp"
-#include "folderManager.cpp"
 using namespace std;
 
 void runFolderMenu(const string& userName){
@@ -140,7 +140,6 @@ int main(){
        cout << "Enter your username: ";
        getline(cin, userName);
     }
-
 
     runFolderMenu(userName);
 
