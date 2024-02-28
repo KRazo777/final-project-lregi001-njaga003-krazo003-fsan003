@@ -2,6 +2,7 @@
 #include "../include/folder.h"
 #include "../include/note.h"
 #include "../include/folderManager.h"
+
 using namespace std;
 
 
@@ -14,6 +15,7 @@ int main(){
 
     cout << "Hello " << userName << "!" << endl;    
 
+    Folder h("nidhi");
 
     return 0;
 }
