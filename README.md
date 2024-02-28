@@ -61,11 +61,11 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
 ## Class Diagram
  > ![ClassDiagram drawio (1)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/ee7d3697-8d87-458c-9713-0e0c158d6dda)
 >
-> Our main class acts as an interface where users are able to interact with the rest of our program and through a menu output can choose what actions they take. It is where they will be able to control the actions they want to take.
->The Notes class is an object class that manages what is inside of a singular note. This includes writing to a note as well as making sure the time of last edit is updated. It is where 
->The Folders class contains notes within it and has an aggregation relationship with the class. This is where notes are managed; adding and deleting notes as well as seeing all the notes in the folder are allowed here.
->The Folder Manager class contains folders within it and is what is used to manage all the folders that are contained within.
->Solid principles that we applied included Single Responsibility which is shown throughout addition to the Folder Manager Class. We noticed that our Folder class was assigned with many tasks that didn’t align with only one singular goal, so we separated it into a Folder Class and a separate class that manages our folders called FolderManager. This helps us write better code as because each class follows the single responsibility principle, it makes our code easier to implement as well as prevent any bugs or unexpected changes in the future to be limited rather than spread throughout. 
+  Our main class acts as an interface where users are able to interact with the rest of our program and through a menu output can choose what actions they take. It is where they will be able to control the actions they want to take.
+ <br> The Notes class is an object class that manages what is inside of a singular note. This includes writing to a note as well as making sure the time of last edit is updated. It is where all actions that can be taken on note as well as helper functions are implemented. 
+ <br>The Folders class contains notes within it and has an aggregation relationship with the class. This is where notes are managed; adding and deleting notes as well as seeing all the notes in the folder are allowed here.
+ <br> The Folder Manager class contains folders within it and is what is used to manage all the folders that are contained within.
+<br> Solid principles that we applied included Single Responsibility which is shown throughout addition to the Folder Manager Class. We noticed that our Folder class was assigned with many tasks that didn’t align with only one singular goal, so we separated it into a Folder Class and a separate class that manages our folders called FolderManager. This helps us write better code as because each class follows the single responsibility principle, it makes our code easier to implement as well as prevent any bugs or unexpected changes in the future to be limited rather than spread throughout. 
 
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
