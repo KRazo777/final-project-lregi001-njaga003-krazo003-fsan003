@@ -6,6 +6,7 @@
 #include <fstream>
 #include <chrono>
 #include <ctime>
+
 using namespace std;
 
 
@@ -26,8 +27,10 @@ class Note {
         string getTitle();
         string getBody();
         string getLastEdit();
+
         void setLastEdit();
         void renameTitle(const string& newName);
+        void renameTitle();
         int outputNote();
         int writeNoteToFile();
 };

@@ -7,13 +7,12 @@
 
 
 
-
 //default constructor
 Note::Note(){};
 
 
-Note::Note(string titleName, string bodyText, string lastEditText):
-title(titleName),
+Note::Note(string titleName, string bodyText, string lastEditText): 
+title(titleName), 
 body(bodyText),
 lastEdit(lastEditText)
 {};
@@ -89,5 +88,3 @@ int Note::writeNoteToFile() {
 
     return 0;
 }
-
-

@@ -20,3 +20,4 @@ void Folder::setFolderName(const string& name){
 const string& Folder::getFolderName(){
     return folderName;
 };
+
