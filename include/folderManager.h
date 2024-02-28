@@ -4,6 +4,7 @@
 #include "../include/folder.h"
 #include <vector>
 #include <string>
+#include "folder.h"
 using namespace std;
 
 class FolderManager {
@@ -15,14 +16,13 @@ class FolderManager {
         FolderManager();
         ~FolderManager();
 
-        void printFolderMenu(const string& username);
         void createFolder(const string& name);
-        void deleteFolder(const int& name);
+        void deleteFolder(const int& fileNum);
         void renameFolder(const string& oldName, const string& newName);
         void printFolders();
-        bool folderExists(const int& name);
         bool folderIsEmpty();
-        
+        unsigned getFolderSize();
+        bool folderExists(const int& fileNum);
 };
 
 #endif 
