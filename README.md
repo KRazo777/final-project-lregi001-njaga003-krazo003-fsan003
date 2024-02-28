@@ -59,7 +59,7 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
 
 
 ## Class Diagram
- > ![ClassDiagram drawio (1)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/ee7d3697-8d87-458c-9713-0e0c158d6dda)
+![ClassDiagram drawio (2)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/e64a02f9-2848-4e04-97a1-f9b86d184a92)
 >
   Our main class acts as an interface where users are able to interact with the rest of our program and through a menu output can choose what actions they take. It is where they will be able to control the actions they want to take.
  <br> The Notes class is an object class that manages what is inside of a singular note. This includes writing to a note as well as making sure the time of last edit is updated. It is where all actions that can be taken on note as well as helper functions are implemented. 
