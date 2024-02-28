@@ -16,6 +16,10 @@ bool FolderManager::folderIsEmpty(){
     return folders.empty();
 };
 
+unsigned FolderManager::getFolderSize(){
+    return folders.size();
+};
+
 bool FolderManager::folderExists(const int& fileNum){
     if (fileNum < 0 || fileNum > folders.size()) {
         return false;
@@ -38,7 +42,7 @@ void FolderManager::deleteFolder(const int& fileNum){
         folders.erase(folders.begin() + (fileNum - 1));
 
         //Confirm message about file being deleted
-        cout << "File '" << deletedFile << "' deleted" << endl;
+        cout << "Folder '" << deletedFile << "' deleted" << endl;
     } else {
         cout << "Invalid file number." << endl;
     }
