@@ -91,7 +91,7 @@ int main(){
     string userName;
     
     cout << "Enter your username: ";
-    cin >> userName;   
+    getline(cin, userName);   
 
     runFolderMenu(userName);
 
