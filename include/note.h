@@ -2,6 +2,7 @@
 #define __NOTE_H__
 
 #include <string>
+#include <fstream>
 using namespace std;
 
 class Note {
@@ -19,6 +20,8 @@ class Note {
         string getBody(); 
         string getLastEdit();
         void renameTitle();
+        int outputNote();
+        int writeNoteToFile();
 };
 
 #endif 
