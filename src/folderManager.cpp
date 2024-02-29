@@ -16,6 +16,10 @@ bool FolderManager::folderIsEmpty(){
     return folders.empty();
 };
 
+Folder FolderManager::getFolder(int index) {
+    return folders.at(index);
+}
+
 unsigned FolderManager::getFolderSize(){
     return folders.size();
 };

@@ -18,6 +18,7 @@ class FolderManager {
         void renameFolder(const string& oldName, const string& newName);
         void printFolders();
         bool folderIsEmpty();
+        Folder getFolder(int index);
         unsigned getFolderSize();
         bool folderExists(const int& fileNum);
 };

@@ -20,7 +20,7 @@ class Note {
         string getBody(); 
         string getLastEdit();
         void renameTitle();
-        int outputNote();
+        void printNote();
         int writeNoteToFile();
 };
 

@@ -12,22 +12,26 @@ lastEdit(lastEditText)
 Note::~Note(){};
 
 string Note::getTitle(){
-    return ""; //fix this, just had to add this so complier stopped complaining 
+    return title; 
 }; 
 
 string Note::getBody(){
-    return ""; //fix this, just had to add this so complier stopped complaining
+    return body; 
 }; 
 
 string Note::getLastEdit(){
-    return ""; //fix this, just had to add this so complier stopped complaining
+    return lastEdit;
 };
 
-void Note::renameTitle(){};
+void Note::renameTitle(){}; //FIXME: implement
 
-int Note::outputNote() {} //relies on opening "ListOfAllNotes.txt" and reading the note from it
+void Note::printNote() { //output Note contents)
+    cout << this->getTitle() << endl << endl;
+    cout << this->getBody() << endl << endl;
+    cout << "Last edited: " << this->getLastEdit() << endl << endl;
+}
 
-int Note::writeNoteToFile() { 
+int Note::writeNoteToFile() { //REMOVE WHEN SAVE FUNCTION IS IMPLEMENTED
     ofstream writeFS;
     writeFS.open("ListOfAllNotes.txt");
 

@@ -11,15 +11,17 @@ class Folder {
         string folderName;
         vector<Note> notes; 
     public:
+        Folder();
         Folder(const string& name);
         ~Folder();
 
         const string& getFolderName();
-
-        void createNote(const string& name);
+        void AddNotetoFolder(Note& noteToAdd);
+        void createNote(const string& name); //might be redundant /unneeded
         void deleteNote(const string& name);
         void addContentToNote(const string& noteName);
-        void printNote(const string& name);
+        void printAllNotes();
+        bool empty();
         bool noteExists(const string& name);
 };
 
