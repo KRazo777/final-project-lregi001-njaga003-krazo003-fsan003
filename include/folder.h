@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <string>
+#include <fstream>
 #include "note.h"
 using namespace std;
 
@@ -23,6 +24,9 @@ class Folder {
         void addContentToNote(const string& noteName);
         void printNote(const string& name);
         bool noteExists(const string& name);
+
+    private:
+        void deleteNoteFromFile(const string& name); // Helper function for the deleteNote method. Handles deleting the note from the save file.
 };
 
 #endif 
