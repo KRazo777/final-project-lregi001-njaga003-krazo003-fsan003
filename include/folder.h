@@ -1,6 +1,8 @@
 #ifndef __FOLDER_H__
 #define __FOLDER_H__
 
+#include "../include/note.h"
+
 #include <vector>
 #include <string>
 #include "note.h"
@@ -18,6 +20,8 @@ class Folder {
         const string& getFolderName();
         void AddNotetoFolder(Note& noteToAdd);
         void createNote(const string& name); //might be redundant /unneeded
+        void setFolderName(const string& name);
+      
         void deleteNote(const string& name);
         void addContentToNote(const string& noteName);
         void printAllNotes();

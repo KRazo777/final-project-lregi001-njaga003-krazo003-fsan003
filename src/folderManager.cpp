@@ -3,14 +3,24 @@
 #include <iostream>
 #include <algorithm>
 
-FolderManager::FolderManager(){};
+
+FolderManager::FolderManager(){
+   
+};
 FolderManager::~FolderManager(){};
+
+
+
+
+
 
 void FolderManager::createFolder(const string& name){
     Folder newFolder(name);
 
+
     folders.push_back(newFolder);
 };
+
 
 bool FolderManager::folderIsEmpty(){
     return folders.empty();
@@ -27,7 +37,8 @@ unsigned FolderManager::getFolderSize(){
 bool FolderManager::folderExists(const int& fileNum){
     if (fileNum < 0 || fileNum > folders.size()) {
         return false;
-    } 
+    }
+
 
     return true;
 };
@@ -38,21 +49,26 @@ void FolderManager::deleteFolder(const int& fileNum){
         return;
     }
 
+
     if (folderExists(fileNum)){
-        //get the name of the file we will delete 
+        //get the name of the file we will delete
         string deletedFile = folders.at(fileNum-1).getFolderName();
+
 
         //delete the file
         folders.erase(folders.begin() + (fileNum - 1));
 
+
         //Confirm message about file being deleted
-        cout << "Folder '" << deletedFile << "' deleted" << endl;
+        cout << "File '" << deletedFile << "' deleted" << endl;
     } else {
         cout << "Invalid file number." << endl;
     }
 
-    return; 
+
+    return;
 };
+
 
 void FolderManager::printFolders(){
     if (folders.empty()) {
@@ -60,7 +76,9 @@ void FolderManager::printFolders(){
         return;
     }
 
+
     cout << "Folders: ";
+
 
     cout << endl;
     for (unsigned i = 0; i < folders.size(); i++){
@@ -69,4 +87,23 @@ void FolderManager::printFolders(){
     };
 };
 
-void FolderManager::renameFolder(const string& oldName, const string& newName){};
+
+
+
+void FolderManager::renameFolder(const string& oldName, const string& newName){
+    int i;
+    bool found = false;
+
+
+    for(i=0; i<folders.size(); i++){
+        if(folders.at(i).getFolderName() == "oldName"){
+            folder.at(i).setFolderName(newName);
+            found = true;
+        }
+    }
+    if(found == false){
+        cout<<"Not able to find file";
+    }
+       
+
+};

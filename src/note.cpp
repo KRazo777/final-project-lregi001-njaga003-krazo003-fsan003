@@ -1,4 +1,9 @@
 #include "../include/note.h"
+#include <iostream>
+#include <chrono>
+
+
+//using namespace std::chrono;
 
 //default constructor
 Note::Note(){};
@@ -24,14 +29,28 @@ string Note::getLastEdit(){
 };
 
 void Note::renameTitle(){}; //FIXME: implement
+    return ""; //fix this, just had to add this so complier stopped complaining
+};
 
-void Note::printNote() { //output Note contents)
+void Note::setLastEdit(){
+    const auto now = std::chrono::system_clock::now();
+    std::time_t edit_time = std::chrono::system_clock::to_time_t(now);
+    lastEdit = std::ctime(&edit_time);
+    //fix this, just had to add this so complier stopped complaining
+};
+
+void Note::renameTitle(const string& newName){
+    title = newName;
+    setLastEdit();
+};
+
+void Note::printNote() { //output Note contents
     cout << this->getTitle() << endl << endl;
     cout << this->getBody() << endl << endl;
     cout << "Last edited: " << this->getLastEdit() << endl << endl;
 }
 
-int Note::writeNoteToFile() { //REMOVE WHEN SAVE FUNCTION IS IMPLEMENTED
+int Note::writeNoteToFile() { //THIS FUNCTION MAY BE DELETED IN THE FUTURE with some of this code being utilized in a "save" function
     ofstream writeFS;
     writeFS.open("ListOfAllNotes.txt");
 
@@ -40,13 +59,13 @@ int Note::writeNoteToFile() { //REMOVE WHEN SAVE FUNCTION IS IMPLEMENTED
         cerr << "Error: Failed to open the file ListOfAllNotes.txt" << endl;
         return 1; // Return an error code indicating failure
     }
-    
+   
     writeFS << "~BEGIN NOTE" << endl;
     writeFS << "note_title: " << this->getTitle() << endl;
     writeFS << "note_lastEditTime: " << this->getLastEdit() << endl;
     writeFS << "note_body: " << this->getBody() << endl;
     writeFS << "~END NOTE" << endl << endl;
-    
+   
     // After operations, check if the file stream encountered any errors
     if (writeFS.fail()) {
         cerr << "Error: File stream encountered an error while reading." << endl;
@@ -54,6 +73,7 @@ int Note::writeNoteToFile() { //REMOVE WHEN SAVE FUNCTION IS IMPLEMENTED
     }
 
     writeFS.close();
+    setLastEdit();
 
     return 0;
 }

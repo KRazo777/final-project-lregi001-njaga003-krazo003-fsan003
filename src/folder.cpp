@@ -4,9 +4,6 @@ Folder::Folder(): folderName("Untitled Folder") {};
 Folder::Folder(const string& name): folderName(name) {};
 Folder::~Folder(){};
 
-const string& Folder::getFolderName(){
-    return folderName;
-};
 
 void Folder::AddNotetoFolder(Note& noteToAdd) {
     notes.push_back(noteToAdd);
@@ -39,3 +36,13 @@ bool Folder::noteExists(const string& name){
     }
     return false;
 };
+
+
+void Folder::setFolderName(const string& name){
+    folderName = name;
+
+}
+const string& Folder::getFolderName(){
+    return folderName;
+};
+
