@@ -5,6 +5,8 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+#include <iomanip>
 #include "note.h"
 using namespace std;
 
