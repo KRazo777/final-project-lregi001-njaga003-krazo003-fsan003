@@ -26,6 +26,13 @@ bool FolderManager::folderIsEmpty(){
     return folders.empty();
 };
 
+Folder FolderManager::getFolder(int index) {
+    return folders.at(index);
+}
+
+unsigned FolderManager::getFolderSize(){
+    return folders.size();
+};
 
 bool FolderManager::folderExists(const int& fileNum){
     if (fileNum < 0 || fileNum > folders.size()) {
@@ -35,7 +42,6 @@ bool FolderManager::folderExists(const int& fileNum){
 
     return true;
 };
-
 
 void FolderManager::deleteFolder(const int& fileNum){
     // can't delete anything if it's empty

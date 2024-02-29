@@ -31,7 +31,7 @@ class Note {
         void setLastEdit();
         void renameTitle(const string& newName);
         void renameTitle();
-        int outputNote();
+        void printNote();
         int writeNoteToFile();
 };
 
