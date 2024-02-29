@@ -6,6 +6,8 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <iostream>
+#include <iomanip>
 #include "note.h"
 using namespace std;
 
@@ -14,15 +16,20 @@ class Folder {
         string folderName;
         vector<Note> notes; 
     public:
+        Folder();
         Folder(const string& name);
         ~Folder();
 
         const string& getFolderName();
+        void AddNotetoFolder(Note& noteToAdd);
+        void createNote(const string& name); //might be redundant /unneeded
         void setFolderName(const string& name);
-        void createNote(const string& name);
+      
         void deleteNote(const string& name);
         void addContentToNote(const string& noteName);
         void printNote(const string& name);
+        void printAllNoteTitles();
+        bool empty();
         bool noteExists(const string& name);
 
     private:

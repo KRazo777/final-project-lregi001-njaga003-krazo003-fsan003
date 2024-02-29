@@ -5,33 +5,24 @@
 
 //using namespace std::chrono;
 
-
-
 //default constructor
-Note::Note(){};
+Note::Note(): title("Untitled Note"), body("Insert Note Content Here"), lastEdit("0") {};
 
-
-Note::Note(string titleName, string bodyText, string lastEditText): 
-title(titleName), 
-body(bodyText),
-lastEdit(lastEditText)
-{};
-
+Note::Note(string titleName, string bodyText, string lastEditText): title(titleName), body(bodyText), lastEdit(lastEditText) {};
 
 Note::~Note(){};
 
-
 string Note::getTitle(){
-
-
-    return ""; //fix this, just had to add this so complier stopped complaining
-};
-
+    return title; 
+}; 
 
 string Note::getBody(){
-    return ""; //fix this, just had to add this so complier stopped complaining
-};
+    return body; 
+}; 
 
+string Note::getLastEdit(){
+    return lastEdit;
+};
 
 void Note::setLastEdit(){
     const auto now = std::chrono::system_clock::now();
@@ -40,28 +31,20 @@ void Note::setLastEdit(){
     //fix this, just had to add this so complier stopped complaining
 };
 
-
-string Note::getLastEdit(){
-    return lastEdit;
-    //fix this, just had to add this so complier stopped complaining
-};
-
-
-
-
 void Note::renameTitle(const string& newName){
     title = newName;
     setLastEdit();
 };
 
+void Note::printNote() { //output Note contents
+    cout << this->getTitle() << endl << endl;
+    cout << this->getBody() << endl << endl;
+    cout << "Last edited: " << this->getLastEdit() << endl << endl;
+}
 
-int Note::outputNote() {} //relies on opening "ListOfAllNotes.txt" and reading the note from it
-
-
-int Note::writeNoteToFile() {
+int Note::writeNoteToFile() { //THIS FUNCTION MAY BE DELETED IN THE FUTURE with some of this code being utilized in a "save" function
     ofstream writeFS;
     writeFS.open("ListOfAllNotes.txt");
-
 
     // Check if the file stream failed to open
     if (!writeFS.is_open()) {
@@ -81,10 +64,8 @@ int Note::writeNoteToFile() {
         return 1; // Return an error code indicating failure
     }
 
-
     writeFS.close();
     setLastEdit();
-
 
     return 0;
 }
