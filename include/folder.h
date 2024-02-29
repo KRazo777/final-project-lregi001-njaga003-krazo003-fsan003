@@ -26,7 +26,8 @@ class Folder {
       
         void deleteNote(const string& name);
         void addContentToNote(const string& noteName);
-        void printAllNotes();
+        void printNote(const string& name);
+        void printAllNoteTitles();
         bool empty();
         bool noteExists(const string& name);
 };

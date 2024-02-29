@@ -3,6 +3,7 @@
 #include "../include/note.h"
 #include "../include/folderManager.h"
 #include <cctype> 
+#include <limits>
 using namespace std;
 
 void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
@@ -82,6 +83,8 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
 
                     getline(cin, userNoteBody, '~');
 
+                    cin.ignore(); //so tilde '~' characther isn't left in input buffer
+
                     //statement checks to make sure userNoteBody has at least one character in it 
                     // so userNoteBody is not able to be " " or "      "
                     if(userNoteBody.find_first_not_of(' ') == std::string::npos){
@@ -97,10 +100,10 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     userNote.printNote(); //executes after note is completed
                     break;
                 case 'd':
-                    folderToOpen.printAllNotes();
+                    folderToOpen.printAllNoteTitles();
                     break;
                 // case 'a':
-                //     folderToOpen.printAllNotes(); //this function prints out error and returns if empty
+                //     folderToOpen.printAllNoteTitles(); //this function prints out error and returns if empty
 
                 //     //if folder is empty, printFolders() would have printed error message already
                 //     if (folderToOpen.empty()) {
@@ -157,7 +160,7 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
 
                 //     cout << userFolder.getFolderName() << ":" << endl << endl;
 
-                //     userFolder.printAllNotes();
+                //     userFolder.printAllNoteTitles()();
 
                 //     cout << endl;
 
@@ -316,7 +319,7 @@ void runFolderMenu(const string& userName){
 
                 cout << userFolder.getFolderName() << ":" << endl << endl;
 
-                userFolder.printAllNotes();
+                userFolder.printAllNoteTitles();
 
                 cout << endl;
 

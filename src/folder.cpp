@@ -13,7 +13,7 @@ void Folder::createNote(const string& name){}; //look at folder.h's note
 void Folder::deleteNote(const string& name){};
 void Folder::addContentToNote(const string& noteName){};
 
-void Folder::printNote(const string& name)
+void Folder::printNote(const string& name) //PROBABLY MOVE FUNCTION TO NOTE CLASS
 {
     unsigned notePos = 0;
 
@@ -62,7 +62,7 @@ bool Folder::noteExists(const string& name){
 };
 
 
-void Folder::setFolderName(const string& name){
+void Folder::e iName(const string& name){
     folderName = name;
 
 }

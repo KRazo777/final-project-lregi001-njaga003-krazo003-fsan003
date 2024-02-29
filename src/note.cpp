@@ -6,13 +6,9 @@
 //using namespace std::chrono;
 
 //default constructor
-Note::Note(){};
+Note::Note(): title("Untitled Note"), body("Insert Note Content Here"), lastEdit("0") {};
 
-Note::Note(string titleName, string bodyText, string lastEditText): 
-title(titleName), 
-body(bodyText),
-lastEdit(lastEditText)
-{};
+Note::Note(string titleName, string bodyText, string lastEditText): title(titleName), body(bodyText), lastEdit(lastEditText) {};
 
 Note::~Note(){};
 
@@ -26,10 +22,6 @@ string Note::getBody(){
 
 string Note::getLastEdit(){
     return lastEdit;
-};
-
-void Note::renameTitle(){}; //FIXME: implement
-    return ""; //fix this, just had to add this so complier stopped complaining
 };
 
 void Note::setLastEdit(){

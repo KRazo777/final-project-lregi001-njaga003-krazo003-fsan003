@@ -4,4 +4,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 
 ADD_EXECUTABLE(runProgram
     src/main.cpp
+    src/note.cpp 
+    src/folder.cpp 
+    src/folderManager.cpp
 )

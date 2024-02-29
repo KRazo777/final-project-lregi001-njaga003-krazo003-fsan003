@@ -9,11 +9,6 @@ FolderManager::FolderManager(){
 };
 FolderManager::~FolderManager(){};
 
-
-
-
-
-
 void FolderManager::createFolder(const string& name){
     Folder newFolder(name);
 
@@ -87,9 +82,6 @@ void FolderManager::printFolders(){
     };
 };
 
-
-
-
 void FolderManager::renameFolder(const string& oldName, const string& newName){
     int i;
     bool found = false;
@@ -97,12 +89,12 @@ void FolderManager::renameFolder(const string& oldName, const string& newName){
 
     for(i=0; i<folders.size(); i++){
         if(folders.at(i).getFolderName() == "oldName"){
-            folder.at(i).setFolderName(newName);
+            folders.at(i).setFolderName(newName);
             found = true;
         }
     }
     if(found == false){
-        cout<<"Not able to find file";
+        cout << "Not able to find file";
     }
        
 
