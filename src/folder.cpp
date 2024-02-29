@@ -62,7 +62,7 @@ bool Folder::noteExists(const string& name){
 };
 
 
-void Folder::e iName(const string& name){
+void Folder::setFolderName(const string& name){
     folderName = name;
 
 }
