@@ -1,7 +1,7 @@
 #include "../include/note.h"
 #include <iostream>
 #include <chrono>
-
+#include <iomanip>
 
 //using namespace std::chrono;
 
@@ -37,9 +37,16 @@ void Note::renameTitle(const string& newName){
 };
 
 void Note::printNote() { //output Note contents
-    cout << this->getTitle() << endl << endl;
-    cout << this->getBody() << endl << endl;
-    cout << "Last edited: " << this->getLastEdit() << endl << endl;
+
+    cout << setw(99) << setfill('-') << '-' << endl;
+    cout << setw(0) << "Title: " << this->getTitle() << setw(43) << setfill(' ')<< "Last Edit: " << this->getLastEdit() << endl;
+    cout << setw(99) << setfill('-') << '-' << endl;
+    
+    cout << this->getBody() << endl;
+
+    // cout << this->getTitle() << endl << endl;
+    // cout << this->getBody() << endl << endl;
+    // cout << "Last edited: " << this->getLastEdit() << endl << endl;
 }
 
 int Note::writeNoteToFile() { //THIS FUNCTION MAY BE DELETED IN THE FUTURE with some of this code being utilized in a "save" function

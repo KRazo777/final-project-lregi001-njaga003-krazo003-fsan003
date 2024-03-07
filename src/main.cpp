@@ -97,6 +97,7 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     //userLastTimeofEdit = (insert whatever algorthim find the time and then do smth like Int_to_str() function or smth);
 
                     userNote = Note(userNoteName, userNoteBody, userLastTimeofEdit);
+                    userNote.setLastEdit();
                     userNote.printNote(); //executes after note is completed
                     break;
                 case 'd':
