@@ -6,7 +6,11 @@
 
 // FolderManager tests should be written here
 TEST(folderManagerTests, testNoThrow) {
-    EXPECT_NO_THROW( FolderManager example() );
+    EXPECT_NO_THROW( 
+        FolderManager folderMenu;
+        folderMenu.createFolder("myFolder");
+        folderMenu.deleteFolder(1);
+     );
 }
 
 // IsEmpty() / createFolder() / deleteFolder() TESTS-------------------------------------------------
