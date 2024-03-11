@@ -93,7 +93,7 @@ void runFolderMenu(const string& userName){
                 folderMenu.printFolders(); //this function prints out error and returns if empty
 
                 //if folder is empty, printFolders() would have printed error message already
-                if (folderMenu.folderIsEmpty()) {
+                if (folderMenu.isEmpty()) {
                     break; 
                 }
 
@@ -140,7 +140,7 @@ void runFolderMenu(const string& userName){
                 folderMenu.printFolders(); //this function prints out error and returns if empty
                 
                 //if folder is empty, printFolders() would have printed error message already
-                if (folderMenu.folderIsEmpty()) {
+                if (folderMenu.isEmpty()) {
                     break; 
                 }
 
