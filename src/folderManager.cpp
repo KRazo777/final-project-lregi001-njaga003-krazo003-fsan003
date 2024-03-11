@@ -90,11 +90,20 @@ void FolderManager::renameFolder(const int& fileNum){
         cout << "Enter your new folder name: ";
         cin.ignore();
         getline(cin, userFolderName);
-        while(userFolderName == folders.at(fileNum-1).getFolderName()){
-            cout<<"You must enter a NEW folder name: ";
-            cin.clear();
+
+    
+        //makes sure user enters a non-empty string that isn't just whitepsace and isn't the same title
+        while( (userFolderName.find_first_not_of(' ') == std::string::npos) || (userFolderName == folders.at(fileNum-1).getFolderName()) ){
+            if (userFolderName == folders.at(fileNum-1).getFolderName()){
+                cout << "\nPlease enter a NEW folder title" << endl;
+            } else if (userFolderName.find_first_not_of(' ') == std::string::npos){
+                cout << "\nPlease enter a new folder title that is not empty" << endl;
+            }
+            
+            cout << "Enter your new folder title for " << folders.at(fileNum-1).getFolderName() << ": ";
             getline(cin, userFolderName);
         }
+
         folders.at(fileNum-1).setFolderName(userFolderName);
     }
 
