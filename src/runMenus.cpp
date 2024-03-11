@@ -116,6 +116,12 @@ void runFolderMenu(const string& userName){
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 break;
             case 'e':
+                //if folder is empty, should not be able to edit any folder titles
+                if (folderMenu.folderIsEmpty()) {
+                    cout << "No folders have been created." << endl;
+                    break; 
+                }
+
                 cout << "Editing folder title..." << endl;
                 folderMenu.printFolders();
                 cout << "Enter number for the folder name you want to edit: ";
