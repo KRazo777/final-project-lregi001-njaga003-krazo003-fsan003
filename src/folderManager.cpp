@@ -81,20 +81,31 @@ void FolderManager::printFolders(){
     };
 };
 
-void FolderManager::renameFolder(const string& oldName, const string& newName){
-    int i;
-    bool found = false;
+void FolderManager::renameFolder(const int& fileNum){
+    if(folders.empty()){
+        return;
+    }
+    else{
+        string userFolderName;
+        cout << "Enter your new folder name: ";
+        cin.ignore();
+        getline(cin, userFolderName);
 
-
-    for(i=0; i<folders.size(); i++){
-        if(folders.at(i).getFolderName() == oldName){
-            folders.at(i).setFolderName(newName);
-            found = true;
+    
+        //makes sure user enters a non-empty string that isn't just whitepsace and isn't the same title
+        while( (userFolderName.find_first_not_of(' ') == std::string::npos) || (userFolderName == folders.at(fileNum-1).getFolderName()) ){
+            if (userFolderName == folders.at(fileNum-1).getFolderName()){
+                cout << "\nPlease enter a NEW folder title" << endl;
+            } else if (userFolderName.find_first_not_of(' ') == std::string::npos){
+                cout << "\nPlease enter a new folder title that is not empty" << endl;
+            }
+            
+            cout << "Enter your new folder title for " << folders.at(fileNum-1).getFolderName() << ": ";
+            getline(cin, userFolderName);
         }
+
+        folders.at(fileNum-1).setFolderName(userFolderName);
     }
-    if(found == false){
-        cout << "Not able to find file";
-    }
-       
 
 };
+

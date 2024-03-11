@@ -18,7 +18,7 @@ class FolderManager {
 
         void createFolder(const string& name);
         void deleteFolder(const int& fileNum);
-        void renameFolder(const string& oldName, const string& newName);
+        void renameFolder(const int& fileNum);
         void printFolders();
         bool folderIsEmpty();
         Folder getFolder(int index);

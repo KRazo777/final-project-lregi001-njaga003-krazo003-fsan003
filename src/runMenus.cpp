@@ -117,50 +117,23 @@ void runFolderMenu(const string& userName){
                 break;
             case 'e':
                 cout << "Editing folder title..." << endl;
-
-                folderMenu.printFolders(); //this function prints out error and returns if empty
-                
-                //if folder is empty, printFolders() would have printed error message already
-                if (folderMenu.folderIsEmpty()) {
-                    break; 
-                }
-
-                //folder is not empty
-                cout << "Enter the number of the Folder Title you want to edit: ";
-                cin.clear(); //make sure there is no garbage input
+                folderMenu.printFolders();
+                cout << "Enter number for the folder name you want to edit: ";
+                cin.clear();
                 cin >> userFolderNum;
-
-                // Make sure what they input is actually an existing number and that cin does not fail
-                if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getFolderSize()){
-                    cout << "\nInvalid number. Editing Title Process Aborted." << endl;
+                if(cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getFolderSize ()){
+                    cout << "\nInvalid number. Cannot edit folder name." << endl;
                     cin.clear();
-                    // Ignore the incorrect input so it doesn't stay in cin on new while loop
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     break;
+
                 }
-                
-                 // folder number has been validated, can now retrive folder
-                userFolder = folderMenu.getFolder(userFolderNum - 1); //gets folder object stored at index
+                folderMenu.renameFolder(userFolderNum);
 
-                cout << "Enter your new folder title for " << userFolder.getFolderName() << ": ";
-                cin.ignore(); //clears input buffer to it doesn't affect later inputs
-                getline(cin, newFolderName);
-
-                //makes sure user enters a non-empty string that isn't just whitepsace
-                while(newFolderName.find_first_not_of(' ') == std::string::npos){
-                    cout << "Please enter a non-empty folder title" << endl;
-                    cout << "Enter your new folder title for " << userFolder.getFolderName() << ": ";
-                    getline(cin, newFolderName);
-                }
-
-                // New Folder Name has been authenticated, can now rename the folder
-                folderMenu.renameFolder(userFolder.getFolderName(), newFolderName);
-
-                // Show the updated folder and print folders
                 cout << endl;
                 cout << "Folder #" << userFolderNum << " succesfully updated." << endl;
                 folderMenu.printFolders();
-               
+                
                 break;
             case 'o':
 
