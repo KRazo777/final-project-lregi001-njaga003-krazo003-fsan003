@@ -21,4 +21,4 @@ jobs:
       
         cmake .
         make
-        ./bin/runTests
+        ./bin/runAllTests

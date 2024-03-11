@@ -2,6 +2,7 @@
 
 Folder::Folder(): folderName("Untitled Folder") {};
 Folder::Folder(const string& name): folderName(name) {};
+
 Folder::~Folder(){};
 
 void Folder::createNote(const string& name){};
