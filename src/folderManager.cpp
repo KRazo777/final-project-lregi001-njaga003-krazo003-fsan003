@@ -81,20 +81,22 @@ void FolderManager::printFolders(){
     };
 };
 
-void FolderManager::renameFolder(const string& oldName, const string& newName){
-    int i;
-    bool found = false;
-
-
-    for(i=0; i<folders.size(); i++){
-        if(folders.at(i).getFolderName() == "oldName"){
-            folders.at(i).setFolderName(newName);
-            found = true;
+void FolderManager::renameFolder(const int& fileNum){
+    if(folders.empty()){
+        return;
+    }
+    else{
+        string userFolderName;
+        cout << "Enter your new folder name: ";
+        cin.ignore();
+        getline(cin, userFolderName);
+        while(userFolderName == folders.at(fileNum-1).getFolderName()){
+            cout<<"You must enter a NEW folder name: ";
+            cin.clear();
+            getline(cin, userFolderName);
         }
+        folders.at(fileNum-1).setFolderName(userFolderName);
     }
-    if(found == false){
-        cout << "Not able to find file";
-    }
-       
 
 };
+
