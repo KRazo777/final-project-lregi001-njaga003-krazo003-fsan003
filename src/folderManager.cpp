@@ -87,7 +87,7 @@ void FolderManager::renameFolder(const string& oldName, const string& newName){
 
 
     for(i=0; i<folders.size(); i++){
-        if(folders.at(i).getFolderName() == "oldName"){
+        if(folders.at(i).getFolderName() == oldName){
             folders.at(i).setFolderName(newName);
             found = true;
         }

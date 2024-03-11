@@ -21,6 +21,9 @@ void runFolderMenu(const string& userName){
     //user's input when entering the name of a folder
     string userFolderName;
 
+    //user's input when entering the new name of a folder
+    string newFolderName;
+
     //manages the alteration and editing of folders (see folderManager class)
     FolderManager folderMenu;
 
@@ -101,7 +104,7 @@ void runFolderMenu(const string& userName){
 
                 // Make sure what they input is actually an existing number and that cin does not fail
                 if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getFolderSize()){
-                    cout << "Invalid number. Deletion Canceled." << endl;
+                    cout << "\nInvalid number. Deletion Canceled." << endl;
                     cin.clear();
                     // Ignore the incorrect input so it doesn't stay in cin on new while loop
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -114,6 +117,50 @@ void runFolderMenu(const string& userName){
                 break;
             case 'e':
                 cout << "Editing folder title..." << endl;
+
+                folderMenu.printFolders(); //this function prints out error and returns if empty
+                
+                //if folder is empty, printFolders() would have printed error message already
+                if (folderMenu.folderIsEmpty()) {
+                    break; 
+                }
+
+                //folder is not empty
+                cout << "Enter the number of the Folder Title you want to edit: ";
+                cin.clear(); //make sure there is no garbage input
+                cin >> userFolderNum;
+
+                // Make sure what they input is actually an existing number and that cin does not fail
+                if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getFolderSize()){
+                    cout << "\nInvalid number. Editing Title Process Aborted." << endl;
+                    cin.clear();
+                    // Ignore the incorrect input so it doesn't stay in cin on new while loop
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    break;
+                }
+                
+                 // folder number has been validated, can now retrive folder
+                userFolder = folderMenu.getFolder(userFolderNum - 1); //gets folder object stored at index
+
+                cout << "Enter your new folder title for " << userFolder.getFolderName() << ": ";
+                cin.ignore(); //clears input buffer to it doesn't affect later inputs
+                getline(cin, newFolderName);
+
+                //makes sure user enters a non-empty string that isn't just whitepsace
+                while(newFolderName.find_first_not_of(' ') == std::string::npos){
+                    cout << "Please enter a non-empty folder title" << endl;
+                    cout << "Enter your new folder title for " << userFolder.getFolderName() << ": ";
+                    getline(cin, newFolderName);
+                }
+
+                // New Folder Name has been authenticated, can now rename the folder
+                folderMenu.renameFolder(userFolder.getFolderName(), newFolderName);
+
+                // Show the updated folder and print folders
+                cout << endl;
+                cout << "Folder #" << userFolderNum << " succesfully updated." << endl;
+                folderMenu.printFolders();
+               
                 break;
             case 'o':
 
@@ -131,6 +178,7 @@ void runFolderMenu(const string& userName){
 
                 // Make sure what they input is actually an existing number and that cin does not fail
                 if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getFolderSize()){
+                    cout << endl;
                     cout << "Invalid number. Opening Failed." << endl;
                     cin.clear();
                     // Ignore the incorrect input so it doesn't stay in cin on new while loop
@@ -150,10 +198,8 @@ void runFolderMenu(const string& userName){
 
                 cout << endl;
 
-                runNotesMenu(userFolder);
+                runNotesMenu(userFolder); //when using notes menu is done, return statement comes here
 
-                // ignore the integer input so it doesn’t run on next while loop
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 break;
             case 'q':
                 cout << "Quitting program..." << endl;
@@ -263,9 +309,12 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                 case 'd':
                     folderToOpen.printAllNoteTitles();
                     break;
+                case 'm':
+                    cout << "Returning to folder menu..." << endl;
+                    return;
                 case 'q':
                     cout << "Quitting program..." << endl;
-                    return;
+                    exit(0);
                 default:
                     cout << endl;
                     cout << "Invalid choice! Please try again." << endl;
