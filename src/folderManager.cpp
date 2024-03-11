@@ -4,9 +4,7 @@
 #include <algorithm>
 
 
-FolderManager::FolderManager(){
-   
-};
+FolderManager::FolderManager(){};
 FolderManager::~FolderManager(){};
 
 void FolderManager::createFolder(const string& name){
@@ -40,6 +38,7 @@ bool FolderManager::folderExists(const int& fileNum){
 
 void FolderManager::deleteFolder(const int& fileNum){
     // can't delete anything if it's empty
+    //folders is a vector of <Folder> objects
     if (folders.empty()) {
         return;
     }
