@@ -114,6 +114,18 @@ void runFolderMenu(const string& userName){
                 break;
             case 'e':
                 cout << "Editing folder title..." << endl;
+                folderMenu.printFolders();
+                cout << "Enter number for the folder name you want to edit: ";
+                cin.clear();
+                cin >> userFolderNum;
+                if(cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getFolderSize ()){
+                    cout << "Invalid number. Cannot edit folder name." << endl;
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    break;
+
+                }
+                folderMenu.renameFolder(userFolderNum);
                 break;
             case 'o':
 
