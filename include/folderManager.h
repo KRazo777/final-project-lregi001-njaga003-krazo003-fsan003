@@ -4,6 +4,7 @@
 #include "../include/folder.h"
 #include <vector>
 #include <string>
+#include <istream>
 #include "folder.h"
 using namespace std;
 
@@ -18,7 +19,7 @@ class FolderManager {
 
         void createFolder(const string& name);
         void deleteFolder(const int& fileNum);
-        void renameFolder(const int& fileNum);
+        void renameFolder(const int& fileNum, istream& input);
         void printFolders();
         bool isEmpty();
         Folder getFolder(int index);

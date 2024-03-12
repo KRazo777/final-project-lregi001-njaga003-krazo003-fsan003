@@ -1,3 +1,7 @@
+#include <string>
+#include <vector>
+#include<sstream>
+#include <fstream>
 #include <iostream>
 #include <cctype> 
 #include <limits>
@@ -134,7 +138,7 @@ void runFolderMenu(const string& userName){
                     break;
 
                 }
-                folderMenu.renameFolder(userFolderNum);
+                folderMenu.renameFolder(userFolderNum, cin);
 
                 cout << endl;
                 cout << "Folder #" << userFolderNum << " succesfully updated." << endl;
@@ -389,3 +393,70 @@ void save(const string& infoFileName, FolderManager& listOfFolders) { //
     //put implementation here
 }
 
+
+// void load(const string& infoFileName){
+//     ifstream readFile("readFrom.txt");
+
+//     if (readFile.is_open()) {
+//         string inputFromFile;
+//         string substr;
+//         //getline(readFile, inputFromFile);
+//         //userName is not a variable can access here
+//         while (!readFile.eof()) {
+//           getline(readFile, inputFromFile); 
+//           if(inputFromFile == "*_BEGIN FOLDER_*"){
+//             getline(readFile, inputFromFile);
+//             if(inputFromFile.substr(0, 12) == "folder_name:"){
+//               inputFromFile.erase(0, 13);
+//               //Folder newFolder(inputFromFile);
+//               //folderManager.push_back(newFolder);
+//             }
+//             getline(readFile, inputFromFile);
+//             if(inputFromFile.substr(0, 18) == "ListOfNotes_vector:"){
+//               inputFromFile.erase(0, 19);
+//               stringstream s_stream(inputFromFile);
+
+//               while(s_stream.good()){
+//                 getline(s_stream, substr, ',');
+//                 Note newNote(substr);
+//                 folderManager.back().push_back(substr);
+//               }
+//             }
+//             getline(readFile, inputFromFile);
+//             getline(readFile, inputFromFile);
+//             while(inputFromFile == "~_BEGIN NOTE_~"){
+//               getline(readFile, inputFromFile);
+//               if(inputFromFile.substr(0, 11) == "note_title:"){
+//                 inputFromFile.erase(0, 12);
+//                 nameOfNote = inputFromFile;
+//                 //find vector index
+//                 //v3.push_back(inputFromFile);
+//                 getline(readFile, inputFromFile, '~' );
+//                 if(inputFromFile.substr(0, 10) == "note_body:"){
+//                   inputFromFile.erase(0, 11);
+//                   bodyOfNote = inputFromFile;
+                
+//                 }
+//                 getline(readFile, inputFromFile);
+//                 if(inputFromFile.substr(0,20) == "note_last_edit_time:"){
+//                   inputFromFile.erase(0,21);
+//                   lastEditOfNote = inputFromFile;
+//                   //add string time
+//                 }
+
+//               }
+//                 getline(readFile, inputFromFile);
+//                 getline(readFile, inputFromFile);
+//               }
+//             }
+//           }
+//         }
+
+//         readFile.close();
+//     }
+//     else{
+//         cout<<"File was unnable to open";
+//         return 0;
+//     }
+
+// }

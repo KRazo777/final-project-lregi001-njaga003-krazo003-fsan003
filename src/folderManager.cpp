@@ -81,14 +81,14 @@ void FolderManager::printFolders(){
     };
 };
 
-void FolderManager::renameFolder(const int& fileNum){
+void FolderManager::renameFolder(const int& fileNum, istream& cin){
     if(folders.empty()){
         return;
     }
     else{
         string userFolderName;
         cout << "Enter your new folder name: ";
-        cin.ignore();
+        cin.clear();
         getline(cin, userFolderName);
 
     

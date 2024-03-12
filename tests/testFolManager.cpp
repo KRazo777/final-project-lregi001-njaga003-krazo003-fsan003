@@ -3,6 +3,8 @@
 #include "../include/folderManager.h"
 #include "../include/runMenus.h"
 #include "gtest/gtest.h"
+#include <istream>
+
 
 // FolderManager tests should be written here
 TEST(folderManagerTests, testNoThrow) {
@@ -226,19 +228,20 @@ TEST(folderManagerTests, testFolderSizeAfterDeletions) {
 // | Would reocmmend maybe reworking function so it can take istream as parameter and working it that way
 // | Left you a sample test below:
 
-// TEST(folderManagerTests, testRenameFolder) {
+TEST(folderManagerTests, testRenameFolder) {
 
-//     FolderManager folderMenu;
-//     folderMenu.createFolder("myFolder1");
+    FolderManager folderMenu;
+    folderMenu.createFolder("myFolder1");
 
-//     // b/c getFolder returns a FOLDER object, must get it's name to test if they are equal 
-//     EXPECT_EQ(folderMenu.getFolder(0).getFolderName(), "myFolder1");
+    // b/c getFolder returns a FOLDER object, must get it's name to test if they are equal 
+    EXPECT_EQ(folderMenu.getFolder(0).getFolderName(), "myFolder1");
 
-//     //renames first folder
-//     folderMenu.renameFolder(1);
-//     // simulate user input enterting new name
-//     EXPECT_EQ(folderMenu.getFolder(0).getFolderName(), "newFolderName");
-// }
+    //renames first folder
+    istringstream newName("newFolderName");
+    folderMenu.renameFolder(1, newName);
+    // simulate user input enterting new name
+    EXPECT_EQ(folderMenu.getFolder(0).getFolderName(), "newFolderName");
+}
 
 
 // Initialize GTest
