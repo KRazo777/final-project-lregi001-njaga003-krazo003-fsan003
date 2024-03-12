@@ -385,7 +385,50 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
 
 
 
-void save(const string& infoFileName, FolderManager& listOfFolders) { //
-    //put implementation here
+int save(const string& username, const string& infoFileName, FolderManager& listOfFolders) { 
+
+    ofstream writeFS;
+    writeFS.open(infoFileName);
+
+    // Check if the file stream failed to open
+    if (!writeFS.is_open()) {
+        cerr << "Error: Failed to open the file " << infoFileName << "." << endl;
+        return 1; // Return an error code indicating failure
+    }
+   
+    writeFS << "username: " << username << endl << endl;
+
+    for (unsigned i = 0; i < listOfFolders.getListOfFoldersSize(); ++i) {
+        
+        Folder currListOfNotes = listOfFolders.getFolder(i);
+        
+        writeFS << "folder_name: " << currListOfNotes.getFolderName() << endl;
+
+        writeFS << endl << endl;
+        
+        for (unsigned j = 0; j < currListOfNotes.getFolderSize(); ++j) {
+            Note currNote = currListOfNotes.getNote(j);
+
+            writeFS << "~_BEGIN NOTE_~" << endl;
+            writeFS << "note_title: " << currNote.getTitle() << endl;
+            writeFS << "note_body: " << currNote.getBody() << endl;
+            writeFS << "note_lastEditTime: " << currNote.getLastEdit() << endl;
+            writeFS << "~_END NOTE_~" << endl << endl;
+        }
+
+        writeFS << "*_END FOLDER_*" << endl << endl;
+    }
+    
+    writeFS << "*_*END_OF_ALL_DATA*_*";
+   
+    // After operations, check if the file stream encountered any errors
+    if (writeFS.fail()) {
+        cerr << "Error: File stream encountered an error while reading." << endl;
+        return 1; // Return an error code indicating failure
+    }
+
+    writeFS.close();
+
+    return 0;
 }
 
