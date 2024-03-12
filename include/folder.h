@@ -14,7 +14,7 @@ using namespace std;
 class Folder {
     private:
         string folderName;
-        vector<Note> notes; 
+        vector<Note> ListOfNotes; 
     public:
         Folder();
         Folder(const string& name);

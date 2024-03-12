@@ -12,15 +12,15 @@ void Folder::deleteNote(const string& name) // Deletes a note from the vector an
 
     unsigned deletePos = 0;
 
-    for (unsigned i = 0; i < notes.size(); i++) // Loop through notes vector to find the position of the note
+    for (unsigned i = 0; i < ListOfNotes.size(); i++) // Loop through notes vector to find the position of the note
     {
-        if (notes.at(i).getTitle() == name)
+        if (ListOfNotes.at(i).getTitle() == name)
         {
             deletePos = i;
         }
     }
 
-    notes.erase(notes.begin() + deletePos);
+    ListOfNotes.erase(ListOfNotes.begin() + deletePos);
 
 
     // Delete note from the save file
@@ -30,7 +30,7 @@ void Folder::deleteNote(const string& name) // Deletes a note from the vector an
 
 
 void Folder::AddNotetoFolder(Note& noteToAdd) {
-    notes.push_back(noteToAdd);
+    ListOfNotes.push_back(noteToAdd);
 }
 
 void Folder::addContentToNote(const string& noteName){};
@@ -43,23 +43,23 @@ void Folder::printAllNoteTitles(){
 
     cout << this->getFolderName() << ":" << endl;
     cout << endl;
-    for (unsigned i = 0; i < notes.size(); i++){
+    for (unsigned i = 0; i < ListOfNotes.size(); i++){
         cout << i + 1 << ". ";
-        cout << notes.at(i).getTitle() << endl;
+        cout << ListOfNotes.at(i).getTitle() << endl;
     };
 };
 
 unsigned Folder::getFolderSize() {
-    return notes.size();
+    return ListOfNotes.size();
 }
 
 bool Folder::empty() {
-    return notes.size() == 0;
+    return ListOfNotes.size() == 0;
 };
 
 bool Folder::noteExists(const string& name){
-    for (unsigned i = 0; i < notes.size(); ++i) {
-        if (name == notes.at(i).getTitle()) {
+    for (unsigned i = 0; i < ListOfNotes.size(); ++i) {
+        if (name == ListOfNotes.at(i).getTitle()) {
             return true;
         }
     }
@@ -72,7 +72,7 @@ void Folder::setFolderName(const string& name){
 }
 
 Note Folder::getNote(int index) {
-    return notes.at(index);
+    return ListOfNotes.at(index);
 }
 
 const string& Folder::getFolderName(){
