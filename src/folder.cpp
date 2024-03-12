@@ -41,13 +41,18 @@ void Folder::printAllNoteTitles(){
         return;
     }
 
-    cout << "Notes: " << endl;
+    cout << this->getFolderName() << ":" << endl;
     cout << endl;
     for (unsigned i = 0; i < notes.size(); i++){
         cout << i + 1 << ". ";
         cout << notes.at(i).getTitle() << endl;
     };
 };
+
+unsigned Folder::getFolderSize() {
+    return notes.size();
+}
+
 bool Folder::empty() {
     return notes.size() == 0;
 };
@@ -64,8 +69,12 @@ bool Folder::noteExists(const string& name){
 
 void Folder::setFolderName(const string& name){
     folderName = name;
-
 }
+
+Note Folder::getNote(int index) {
+    return notes.at(index);
+}
+
 const string& Folder::getFolderName(){
     return folderName;
 };

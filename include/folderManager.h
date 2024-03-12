@@ -22,7 +22,7 @@ class FolderManager {
         void printFolders();
         bool isEmpty();
         Folder getFolder(int index);
-        unsigned getFolderSize();
+        unsigned getListOfFoldersSize();
         bool folderExists(const int& fileNum);
 };
 

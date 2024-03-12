@@ -23,7 +23,7 @@ Folder FolderManager::getFolder(int index) {
     return folders.at(index);
 }
 
-unsigned FolderManager::getFolderSize(){
+unsigned FolderManager::getListOfFoldersSize(){
     return folders.size();
 };
 
