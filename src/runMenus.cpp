@@ -93,7 +93,7 @@ void runFolderMenu(const string& userName){
                 folderMenu.printFolders(); //this function prints out error and returns if empty
 
                 //if folder is empty, printFolders() would have printed error message already
-                if (folderMenu.folderIsEmpty()) {
+                if (folderMenu.isEmpty()) {
                     break; 
                 }
 
@@ -116,6 +116,12 @@ void runFolderMenu(const string& userName){
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 break;
             case 'e':
+                //if folder is empty, should not be able to edit any folder titles
+                if (folderMenu.isEmpty()) {
+                    cout << "No folders have been created." << endl;
+                    break; 
+                }
+
                 cout << "Editing folder title..." << endl;
                 folderMenu.printFolders();
                 cout << "Enter number for the folder name you want to edit: ";
@@ -140,7 +146,7 @@ void runFolderMenu(const string& userName){
                 folderMenu.printFolders(); //this function prints out error and returns if empty
                 
                 //if folder is empty, printFolders() would have printed error message already
-                if (folderMenu.folderIsEmpty()) {
+                if (folderMenu.isEmpty()) {
                     break; 
                 }
 

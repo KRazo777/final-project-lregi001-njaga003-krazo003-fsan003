@@ -15,7 +15,7 @@ void FolderManager::createFolder(const string& name){
 };
 
 
-bool FolderManager::folderIsEmpty(){
+bool FolderManager::isEmpty(){
     return folders.empty();
 };
 
