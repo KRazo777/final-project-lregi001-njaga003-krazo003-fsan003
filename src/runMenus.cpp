@@ -117,7 +117,7 @@ void runFolderMenu(const string& userName){
                 break;
             case 'e':
                 //if folder is empty, should not be able to edit any folder titles
-                if (folderMenu.folderIsEmpty()) {
+                if (folderMenu.isEmpty()) {
                     cout << "No folders have been created." << endl;
                     break; 
                 }
