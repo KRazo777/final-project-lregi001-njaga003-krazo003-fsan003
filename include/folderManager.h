@@ -20,7 +20,7 @@ class FolderManager {
         void deleteFolder(const int& fileNum);
         void renameFolder(const int& fileNum);
         void printFolders();
-        bool folderIsEmpty();
+        bool isEmpty();
         Folder getFolder(int index);
         unsigned getFolderSize();
         bool folderExists(const int& fileNum);
