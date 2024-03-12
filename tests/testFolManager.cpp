@@ -172,11 +172,11 @@ TEST(folderManagerTests, testfolderExistsAfterDeletes) {
     EXPECT_EQ(folderMenu.folderExists(1), false);
 }
 
-// getFolderSize() / createFolder() / deleteFolder() TESTS-------------------------------------------------
+// getListOfFoldersSize() / createFolder() / deleteFolder() TESTS-------------------------------------------------
 // empty Folders Vector
 TEST(folderManagerTests, testFolderSizeEmpty) {
     FolderManager folderMenu;
-    EXPECT_EQ(folderMenu.getFolderSize(), 0);
+    EXPECT_EQ(folderMenu.getListOfFoldersSize(), 0);
 }
 
 // non-empty Folders vector
@@ -186,10 +186,10 @@ TEST(folderManagerTests, testFolderSize3) {
     folderMenu.createFolder("myFolder2");
     folderMenu.createFolder("myFolder3");
 
-    EXPECT_EQ(folderMenu.getFolderSize(), 3);
+    EXPECT_EQ(folderMenu.getListOfFoldersSize(), 3);
 }
 
-// test getFolderSize() deletions
+// test getListOfFoldersSize() deletions
 TEST(folderManagerTests, testFolderSizeAfterDeletions) {
     FolderManager folderMenu;
     folderMenu.createFolder("myFolder");
@@ -198,26 +198,26 @@ TEST(folderManagerTests, testFolderSizeAfterDeletions) {
     folderMenu.createFolder("myFolder4");
     folderMenu.createFolder("myFolder5");
 
-    EXPECT_EQ(folderMenu.getFolderSize(), 5);
+    EXPECT_EQ(folderMenu.getListOfFoldersSize(), 5);
 
     // user is asked which number folder they want to delete, and passed in is number of the folder (index-1)
     folderMenu.deleteFolder(3);
     folderMenu.deleteFolder(2);
 
     // 5-2 = 3 folders
-    EXPECT_EQ(folderMenu.getFolderSize(), 3);
+    EXPECT_EQ(folderMenu.getListOfFoldersSize(), 3);
 
     // user is asked which number folder they want to delete, and passed in is number of the folder (index-1)
     folderMenu.deleteFolder(2);
     folderMenu.deleteFolder(1);
 
     // 3-2 = 1 folder
-    EXPECT_EQ(folderMenu.getFolderSize(), 1);
+    EXPECT_EQ(folderMenu.getListOfFoldersSize(), 1);
 
     folderMenu.deleteFolder(1);
 
     // empty folder 
-    EXPECT_EQ(folderMenu.getFolderSize(), 0);
+    EXPECT_EQ(folderMenu.getListOfFoldersSize(), 0);
 }
 
 // renameFolder() / createFolder() / deleteFolder() TESTS-------------------------------------------------
