@@ -412,7 +412,7 @@ int save(const string& username, const string& infoFileName, FolderManager& list
             writeFS << "~_BEGIN NOTE_~" << endl;
             writeFS << "note_title: " << currNote.getTitle() << endl;
             writeFS << "note_body: " << currNote.getBody() << endl;
-            writeFS << "note_lastEditTime: " << currNote.getLastEdit() << endl;
+            writeFS << "~" << "note_lastEditTime: " << currNote.getLastEdit() << endl;
             writeFS << "~_END NOTE_~" << endl << endl;
         }
 
