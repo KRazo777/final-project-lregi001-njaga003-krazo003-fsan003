@@ -24,10 +24,13 @@ class Folder {
         void AddNotetoFolder(Note& noteToAdd);
         void createNote(const string& name); //might be redundant /unneeded
         void setFolderName(const string& name);
+
+        Note getNote(int index);
       
         void deleteNote(const string& name);
         void addContentToNote(const string& noteName);
         void printAllNoteTitles();
+        unsigned getFolderSize();
         bool empty();
         bool noteExists(const string& name);
 

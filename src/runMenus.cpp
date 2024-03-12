@@ -103,7 +103,7 @@ void runFolderMenu(const string& userName){
                 cin >> userFolderNum;
 
                 // Make sure what they input is actually an existing number and that cin does not fail
-                if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getFolderSize()){
+                if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getListOfFoldersSize()){
                     cout << "\nInvalid number. Deletion Canceled." << endl;
                     cin.clear();
                     // Ignore the incorrect input so it doesn't stay in cin on new while loop
@@ -121,7 +121,7 @@ void runFolderMenu(const string& userName){
                 cout << "Enter number for the folder name you want to edit: ";
                 cin.clear();
                 cin >> userFolderNum;
-                if(cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getFolderSize ()){
+                if(cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getListOfFoldersSize()){
                     cout << "\nInvalid number. Cannot edit folder name." << endl;
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -150,7 +150,7 @@ void runFolderMenu(const string& userName){
                 cin >> userFolderNum;
 
                 // Make sure what they input is actually an existing number and that cin does not fail
-                if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getFolderSize()){
+                if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getListOfFoldersSize()){
                     cout << endl;
                     cout << "Invalid number. Opening Failed." << endl;
                     cin.clear();
@@ -176,6 +176,7 @@ void runFolderMenu(const string& userName){
                 break;
             case 'q':
                 cout << "Quitting program..." << endl;
+                //put save function here
                 return;
             default:
                 cout << endl;
@@ -193,6 +194,12 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
 
     // user's choice when selecting menu options
     char userChoiceNoteMenu;
+
+    //user's choice when selecting a note
+    int userNoteNum;
+
+    //user's additions in the note's function
+    string userNoteAdditions;
 
     //user's name for their note
     string userNoteName;
@@ -277,15 +284,90 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     userNote = Note(userNoteName, userNoteBody, userLastTimeofEdit);
                     userNote.setLastEdit();
                     userNote.printNote(); //executes after note is completed
+                    folderToOpen.AddNotetoFolder(userNote); //adds note object into folder object
                     break;
                 case 'd':
                     folderToOpen.printAllNoteTitles();
+                    // need to add deletion stuff here
+                    break;
+                case 'a':
+                    cout << "Choose a note to add to:" << endl << endl;
+                    folderToOpen.printAllNoteTitles();
+                    
+                    cout << "Select the number of the note you want to add to: ";
+                    cin.clear(); //make sure there is no garbage input
+                    cin >> userNoteNum;
+
+                    // Make sure what they input is actually an existing number and that cin does not fail
+                    if (cin.fail() || userNoteNum < 1 || userNoteNum > folderToOpen.getFolderSize()) {
+                        cout << endl;
+                        cout << "Invalid number. Opening Failed." << endl;
+                        cin.clear();
+                        // Ignore the incorrect input so it doesn't stay in cin on new while loop
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        break;
+                    }
+
+                    cin.ignore(); //clears userNoteNum left in input buffer to it doesn't affect later inputs
+
+                    cout << "Current Note Contents: " << endl << endl;
+
+                    userNote = folderToOpen.getNote(userNoteNum - 1); //gets folder object stored at index
+
+                    userNote.printNote();
+
+                    cout << "Enter any additional content to your note. Type the tilde character (~) to enter your additions: " << endl;
+
+                    getline(cin, userNoteAdditions, '~');
+
+                    userNote.setBody(userNote.getBody() + userNoteAdditions);
+
+                    userNote.setLastEdit();
+
+                    cin.ignore(); //so tilde '~' characther isn't left in input buffer
+
+                    //statement checks to make sure userNoteBody has at least one character in it 
+                    // so userNoteBody is not able to be " " or "      "
+                    if(userNoteBody.find_first_not_of(' ') == std::string::npos){
+                        cout << "No contents entered for note. Note Creation Canceled." << endl;
+                        break;
+                    }
+
+                    cout << endl;   
+
+                    cout << "Updated Note Contents: " << endl << endl;
+
+                    userNote.printNote();
+                    break;
+                case 'o':
+                    folderToOpen.printAllNoteTitles();
+
+                    cout << "Enter the number of the note you want to open: ";
+                    cin.clear(); //make sure there is no garbage input
+                    cin >> userNoteNum;
+
+                    // Make sure what they input is actually an existing number and that cin does not fail
+                    if (cin.fail() || userNoteNum < 1 || userNoteNum > folderToOpen.getFolderSize()) {
+                        cout << endl;
+                        cout << "Invalid number. Opening Failed." << endl;
+                        cin.clear();
+                        // Ignore the incorrect input so it doesn't stay in cin on new while loop
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        break;
+                    }
+
+                    cin.ignore(); //clears userNoteNum left in input buffer to it doesn't affect later inputs
+
+                    userNote = folderToOpen.getNote(userNoteNum - 1); //gets folder object stored at index
+
+                    userNote.printNote();
                     break;
                 case 'm':
                     cout << "Returning to folder menu..." << endl;
                     return;
                 case 'q':
                     cout << "Quitting program..." << endl;
+                    //put save function here
                     exit(0);
                 default:
                     cout << endl;

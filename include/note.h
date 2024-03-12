@@ -19,9 +19,12 @@ class Note {
         string getTitle(); 
         string getBody(); 
         string getLastEdit();
+        void setTitle(const string& newTitle);
+        void setBody(const string& newBody);
         void setLastEdit();
         void renameTitle(const string& newName);
         void printNote();
+        void addToNote();
         int writeNoteToFile();
 };
 

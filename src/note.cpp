@@ -24,6 +24,14 @@ string Note::getLastEdit(){
     return lastEdit;
 };
 
+void Note::setTitle(const string& newTitle) {
+    this->title = newTitle;
+}
+
+void Note::setBody(const string& newBody) {
+    this->body = newBody;
+}
+
 void Note::setLastEdit(){
     const auto now = std::chrono::system_clock::now();
     std::time_t edit_time = std::chrono::system_clock::to_time_t(now);
@@ -43,10 +51,13 @@ void Note::printNote() { //output Note contents
     cout << setw(99) << setfill('-') << '-' << endl;
     
     cout << this->getBody() << endl;
+}
 
-    // cout << this->getTitle() << endl << endl;
-    // cout << this->getBody() << endl << endl;
-    // cout << "Last edited: " << this->getLastEdit() << endl << endl;
+void Note::addToNote() {
+    // cout << "Contents of Current Note:" << endl << endl;
+    // this->printNote();
+    // cout << ""
+
 }
 
 int Note::writeNoteToFile() { //THIS FUNCTION MAY BE DELETED IN THE FUTURE with some of this code being utilized in a "save" function
