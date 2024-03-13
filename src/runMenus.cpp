@@ -299,8 +299,36 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     folderToOpen.AddNotetoFolder(userNote); //adds note object into folder object
                     break;
                 case 'd':
+
+                    if (folderToOpen.empty()) // If folder is empty don't allow deletion.
+                    {
+                        cout << "Folder is empty! Note deletion cancelled." << endl;
+                        break;
+                    }
+
+                    cout << "Choose a note to delete:" << endl << endl;
                     folderToOpen.printAllNoteTitles();
-                    // need to add deletion stuff here
+                    cout << endl;
+                    
+                    cout << "Select the number of the note you want to delete: ";
+                    cin.clear(); //make sure there is no garbage input
+                    cin >> userNoteNum;
+
+                    // Make sure what they input is actually an existing number and that cin does not fail
+                    if (cin.fail() || userNoteNum < 1 || userNoteNum > folderToOpen.getFolderSize()) {
+                        cout << endl;
+                        cout << "Invalid number. Opening Failed." << endl;
+                        cin.clear();
+                        // Ignore the incorrect input so it doesn't stay in cin on new while loop
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        break;
+                    }
+
+                    cin.ignore(); // Clear buffer for future use
+
+                    cout << endl << folderToOpen.getNote(userNoteNum - 1).getTitle() << " was successfully deleted." << endl;
+                    folderToOpen.deleteNote(folderToOpen.getNote(userNoteNum - 1).getTitle());
+
                     break;
                 case 'a':
                     cout << "Choose a note to add to:" << endl << endl;
