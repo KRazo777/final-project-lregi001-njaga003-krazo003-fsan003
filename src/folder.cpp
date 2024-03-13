@@ -85,8 +85,13 @@ void Folder::deleteNoteFromFile(const string& name) // Helper function for the d
     long endPos; // End location of the note in the file
     string data; // Holds lines pulled from the saveFile (used for comparison and transfer purposes)
     
-    fstream saveFile; // File containing currently saved notes
+    fstream saveFile("ListOfAllNotes.txt"); // File containing currently saved notes
     ofstream transferFile; // File to be created and deleted for the purposes of deleting a note
+
+    if (!saveFile.good()) // If the saveFile "ListOfAllNotes.txt" has not been found or created (no need to check files)
+    {
+        return;
+    }
 
     saveFile.open("ListOfAllNotes.txt");
     transferFile.open("Transfer.txt");
