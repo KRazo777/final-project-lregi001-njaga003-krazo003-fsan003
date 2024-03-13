@@ -183,6 +183,8 @@ void runFolderMenu(const string& userName){
 
                 runNotesMenu(userFolder); //when using notes menu is done, return statement comes here
 
+                folderMenu.updateFolder(userFolderNum - 1, userFolder);
+
                 break;
             case 'q':
                 cout << "Quitting program..." << endl;

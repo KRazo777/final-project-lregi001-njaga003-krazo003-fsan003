@@ -63,6 +63,11 @@ void FolderManager::deleteFolder(const int& fileNum){
     return;
 };
 
+void FolderManager::updateFolder(int index, Folder& newFolder)
+{
+    folders.at(index) = newFolder;
+}
+
 
 void FolderManager::printFolders(){
     if (folders.empty()) {
