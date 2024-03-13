@@ -4,3 +4,4 @@ Makefile
 bin/
 lib/
 cmake_install.cmake
+runProgValgrind

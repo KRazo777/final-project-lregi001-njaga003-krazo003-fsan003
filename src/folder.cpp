@@ -36,12 +36,13 @@ void Folder::AddNotetoFolder(Note& noteToAdd) {
 void Folder::addContentToNote(const string& noteName){};
 
 void Folder::printAllNoteTitles(){
+    cout << this->getFolderName() << ":" << endl;
+
     if (this->empty()) {
         cout << "No notes have been created";
         return;
     }
 
-    cout << this->getFolderName() << ":" << endl;
     cout << endl;
     for (unsigned i = 0; i < ListOfNotes.size(); i++){
         cout << i + 1 << ". ";
