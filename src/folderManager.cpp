@@ -92,8 +92,8 @@ void FolderManager::renameFolder(const int& fileNum, istream& cin){
     }
     else{
         string userFolderName;
+        cin.ignore();
         cout << "Enter your new folder name: ";
-        cin.clear();
         getline(cin, userFolderName);
 
     
