@@ -237,7 +237,7 @@ TEST(folderManagerTests, testRenameFolder) {
     EXPECT_EQ(folderMenu.getFolder(0).getFolderName(), "myFolder1");
 
     //renames first folder
-    istringstream newName("newFolderName");
+    istringstream newName(" newFolderName");
     folderMenu.renameFolder(1, newName);
     // simulate user input enterting new name
     EXPECT_EQ(folderMenu.getFolder(0).getFolderName(), "newFolderName");

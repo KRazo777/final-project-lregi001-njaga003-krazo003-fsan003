@@ -17,3 +17,9 @@ int mainTest3(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
+TEST(noteTests, testThatNoteEdit) {
+    Note newNote("nameOfNote", "", "0");
+    newNote.setLastEdit();
+    EXPECT_FALSE(newNote.getLastEdit() == "0");
+}
