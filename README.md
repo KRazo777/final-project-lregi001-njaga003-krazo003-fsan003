@@ -59,9 +59,9 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
 
 
 ## Class Diagram
-![ClassDiagram drawio (2)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/e64a02f9-2848-4e04-97a1-f9b86d184a92)
->
-  Our main class acts as an interface where users are able to interact with the rest of our program and through a menu output can choose what actions they take. It is where they will be able to control the actions they want to take.
+>![ClassDiagram (1)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/103863739/a24eba53-b0db-43a7-bdfa-93cfd7e97588)
+
+  Our main class acts as an start of the program, where users intially enter their username and are then taken to the folder menu. It is here where they will be able to manage and create their collection of folders. The runMenus class is responsible for running the menus of our program, which is the primary method the user utilizes to interact with the program. These menus display a GUI for the user in order for them to swiftly decide how they may want to manage their folders (using the Folder Menu) or notes (using the Notes Menu). The folder menu allows the user to control the amount of folders they have, change names of folders, as well as being able to open these folders and create notes in each individual folder. Within the notes menu, the user is given the ability to manage their notes within each respective folder, add to notes, or view their created notes.
  <br> The Notes class is an object class that manages what is inside of a singular note. This includes writing to a note as well as making sure the time of last edit is updated. It is where all actions that can be taken on note as well as helper functions are implemented. 
  <br>The Folders class contains notes within it and has an aggregation relationship with the class. This is where notes are managed; adding and deleting notes as well as seeing all the notes in the folder are allowed here.
  <br> The Folder Manager class contains folders within it and is what is used to manage all the folders that are contained within.
