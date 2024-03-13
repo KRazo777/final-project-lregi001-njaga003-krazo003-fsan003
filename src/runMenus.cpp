@@ -31,7 +31,6 @@ void runFolderMenu(const string& userName){
     //manages the alteration and editing of folders (see folderManager class)
     FolderManager folderMenu;
 
-    //user's chosen folder (used when opening a folder)
     Folder userFolder;
 
     cout << "Hello, " << userName << "!" << endl;
@@ -175,9 +174,7 @@ void runFolderMenu(const string& userName){
 
                 cout << endl;
 
-                cout << userFolder.getFolderName() << ":" << endl << endl;
-
-                userFolder.printAllNoteTitles();
+                userFolder.printAllNoteTitles(); //this will also print the "folderName: "
 
                 cout << endl;
 
@@ -380,6 +377,13 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     userNote.printNote();
                     break;
                 case 'o':
+
+                    if (folderToOpen.empty()) // If folder is empty don't allow deletion.
+                    {
+                        cout << "Folder is empty! No notes have been created." << endl;
+                        break;
+                    }
+
                     folderToOpen.printAllNoteTitles();
 
                     cout << "Enter the number of the note you want to open: ";
