@@ -23,7 +23,6 @@ class Note {
         void setBody(const string& newBody);
         void setLastEdit();
         void printNote();
-        int writeNoteToFile();
 };
 
 #endif 
