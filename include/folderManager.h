@@ -23,7 +23,6 @@ class FolderManager {
         void renameFolder(const int& fileNum, istream& input);
         void printFolders();
         bool isEmpty();
-        int getSizeofManager();
         Folder& getFolder(int index);
         unsigned getListOfFoldersSize();
         bool folderExists(const int& fileNum);
