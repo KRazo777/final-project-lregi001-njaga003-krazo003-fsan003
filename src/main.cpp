@@ -23,7 +23,7 @@ int main(){
        getline(cin, userName);
     }
 
-    runFolderMenu(userName);
+    runFolderMenu(userName, cin);
 
 
 

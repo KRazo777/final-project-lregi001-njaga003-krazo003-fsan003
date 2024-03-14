@@ -11,7 +11,7 @@
 #include "../include/runMenus.h"
 using namespace std;
 
-void runFolderMenu(const string& userName){
+void runFolderMenu(const string& userName, istream& cin){
 
     //RECIEVER VARIABLE IN CASE USER ENTERS MORE THAN ONE CHARACTER 
     string input;
