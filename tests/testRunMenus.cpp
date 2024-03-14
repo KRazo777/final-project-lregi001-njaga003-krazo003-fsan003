@@ -24,6 +24,9 @@ TEST(runMenusTests, testLoad){
     string bodyOfViolin = "string instrument, 4 strings; has a e, a, g, d string\n";
     string bodyOfMozzarella = "-mild, semisoft white itialian Cheese\n-used in pizza, pasta and similar dishes\n-good as a melting topping\n";
     string bodyOfCheddar = "-cheddar cheeeeese yum\n";
+    string lastEdit1 = "03-04-2024 - 12:36:21";
+    string lastEdit2 = "04-05-2024 - 12:36:22";
+    string lastEdit3 = "05-06-2024 - 12:36:23";
 
     FolderManager listOfFolders;
     //void load(const string& infoFileName, string userName, FolderManager &listOfFolders)
@@ -63,6 +66,7 @@ TEST(runMenusTests, testLoad){
         EXPECT_NO_THROW(listOfFolders.getFolder(1).getNote(i).getLastEdit());
     }
 
+    //check bodies of notes
     check = listOfFolders.getFolder(0).getNote(0).getBody();
     EXPECT_EQ(check , bodyOfViolin);
     
@@ -71,6 +75,17 @@ TEST(runMenusTests, testLoad){
 
     check = listOfFolders.getFolder(1).getNote(1).getBody();
     EXPECT_EQ(check, bodyOfCheddar);
+
+    //check setLastEdit of notes
+    check = listOfFolders.getFolder(0).getNote(0).getLastEdit();
+    EXPECT_EQ(check, lastEdit1);
+
+    check = listOfFolders.getFolder(1).getNote(0).getLastEdit();
+    EXPECT_EQ(check, lastEdit2);
+
+    check = listOfFolders.getFolder(1).getNote(1).getLastEdit();
+    EXPECT_EQ(check, lastEdit3);
+
 
     inputFile.close();
 
