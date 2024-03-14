@@ -58,8 +58,6 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
  <br> The Folder Manager class contains folders within it and is what is used to manage all the folders that are contained within.
 <br> Solid principles that we applied included Single Responsibility which is shown throughout addition to the Folder Manager Class. We noticed that our Folder class was assigned with many tasks that didn’t align with only one singular goal, so we separated it into a Folder Class and a separate class that manages our folders called FolderManager. This helps us write better code as because each class follows the single responsibility principle, it makes our code easier to implement as well as prevent any bugs or unexpected changes in the future to be limited rather than spread throughout. 
 
- > ## Phase III
-> 
  > ## Final deliverable
  
  ## Screenshots
