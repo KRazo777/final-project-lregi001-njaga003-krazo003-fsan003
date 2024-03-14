@@ -234,7 +234,6 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
         cout << "Add To Note (a)" << endl;
         cout << "Open Note (o)" << endl;
         cout << "Main Menu (m)" << endl;
-        cout << "Quit (q)" << endl;
         cout << "Enter your choice: ";
     
         cin.clear(); //clear cin, make sure no garbage input
@@ -421,10 +420,6 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                 case 'm':
                     cout << "Returning to folder menu..." << endl;
                     return;
-                case 'q':
-                    cout << "Quitting program..." << endl;
-                    //put save function here
-                    exit(0);
                 default:
                     cout << endl;
                     cout << "Invalid choice! Please try again." << endl;
