@@ -58,19 +58,27 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
  > ## Final deliverable
  
  ## Screenshots
+ ### After Logging In...
  ![image](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/006dd721-45c4-42f5-a337-dd98e54cb39c)
+ ### Making a New Folder
 ![image2](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/95277325-3af1-43d9-8dd5-263163932396)
 ![image3](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/2e76682b-e62e-4dfc-a20b-99dc934a7889)
+### Making a New Note
 ![image4](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/f9435e9b-de98-4ed9-8d9e-0574c11e86fd)
 ![image5](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/0850c6b4-000f-4d37-bae7-c8ade6fa44ec)
+### Adding to a New Note
 ![image6](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/08aa6ddf-8dd0-4db5-9c9e-d1e0d46c878a)
 ![image7](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/1e7159c0-ff2e-4936-838a-5d5733ee4cea)
+### Deleting a Note
 ![image8](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/126de1a6-a029-457f-966e-01973f205f38)
 ![image9](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/213fd86e-3745-4647-a614-c0796120a364)
+### Renaming a Folder
 ![image10](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/2209505e-199c-4da4-b8ed-5f2877b44019)
 ![image11](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/d9f7e656-0348-432c-bea8-d9b21af85430)
+### Deleting a Folder
 ![image12](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/0293dc3e-5026-4d5b-b1d5-3f94375ab544)
 ![image13](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/f0e6f928-df8d-4d17-94ba-eff110030354)
+### Quitting The Program
 ![image14](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/7b1f7b09-940a-4bba-8f16-c125394a446c)
 ![image15](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/cba6dde0-5412-4a6a-a543-72b875bde739)
 
