@@ -332,6 +332,13 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
 
                     break;
                 case 'a': //add to note
+
+                    if (folderToOpen.empty()) // If folder is empty don't allow adding to notes.
+                    {
+                        cout << "Folder is empty! No notes to add to." << endl;
+                        break;
+                    }
+
                     cout << "Choose a note to add to:" << endl << endl;
                     folderToOpen.printAllNoteTitles();
                     
