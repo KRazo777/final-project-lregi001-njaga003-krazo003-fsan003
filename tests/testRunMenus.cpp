@@ -115,7 +115,7 @@ TEST(runMenusTests, testLoad){
     string noteNamesForInstruments2 = "poop";
     vector <string> noteNamesForCheeseTypes {"Mozzarella", "Cheddar"};
     string bodyOfViolin = "string instrument, 4 strings; has a e, a, g, d string\n";
-    string bodyOfMozzarella = "-mild, semisoft white itialian Cheese\n-used in pizza, pasta and similar dishes\n-good as a melting topping\n";
+    string bodyOfMozzarella = "-mild, semisoft white Italian Cheese\n-used in pizza, pasta and similar dishes\n-good as a melting topping\n";
     string bodyOfCheddar = "-cheddar cheeeeese yum\n";
     string lastEdit1 = "03-04-2024 - 12:36:21";
     string lastEdit2 = "04-05-2024 - 12:36:22";

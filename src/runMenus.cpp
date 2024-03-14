@@ -420,7 +420,7 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                 case 'm':
                     cout << "Returning to folder menu..." << endl;
                     return;
-                default:
+                    default:
                     cout << endl;
                     cout << "Invalid choice! Please try again." << endl;
             }
@@ -545,19 +545,16 @@ void save(string& userName, string& infoFileName, FolderManager& listOfFolders) 
    
     writeFS << "username: " << userName << endl << endl;
 
-
     for (unsigned i = 0; i < listOfFolders.getListOfFoldersSize(); ++i) {
-       
-        Folder currListOfNotes = listOfFolders.getFolder(i);
-       
-        writeFS << "folder_name: " << currListOfNotes.getFolderName() << endl;
 
-
-        writeFS << endl << endl;
+        cout << "*_BEGIN FOLDER_*" << endl;
        
-        for (unsigned j = 0; j < currListOfNotes.getFolderSize(); ++j) {
-            Note currNote = currListOfNotes.getNote(j);
-
+        Folder currFolder = listOfFolders.getFolder(i);
+       
+        writeFS << "folder_name: " << currFolder.getFolderName() << endl << endl;
+       
+        for (unsigned j = 0; j < currFolder.getFolderSize(); ++j) {
+            Note currNote = currFolder.getNote(j);
 
             writeFS << "~_BEGIN NOTE_~" << endl;
             writeFS << "note_title: " << currNote.getTitle() << endl;
