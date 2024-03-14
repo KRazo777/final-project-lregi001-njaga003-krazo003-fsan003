@@ -69,5 +69,7 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
  We can run Notetastic by typing `./bin/runProgram` in the terminal and begin writing all the notes we'll ever need!
  ## Testing
 Notetastic’s functionality was validated through the use of continuous integration, in which we triggered a build every time we would open a pull request or merge a pull request into our default branch. This build would run all of our tests, which would verify that a pull request was satisfactory for merging and that we could catch any errors that may have appeared from adding new code or functions. This build used a variety of tests for every class that we implemented, ensuring that we accounted for as many types of user input as we could. If a pull request did not pass the build, we would debug on the branch of the pull request and make sure we made the necessary commits so that the build would pass, allowing us to review and eventually approve the pull request. This process made our debugging process a lot more efficient and allowed us to rapidly deploy crucial implementations or fixes.
+### Memcheck-Clean
+<img width="888" alt="Screenshot 2024-03-14 at 2 49 08 AM" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/103863739/4e3f8fdb-b730-476e-9b32-577385d669c7">
 
  
