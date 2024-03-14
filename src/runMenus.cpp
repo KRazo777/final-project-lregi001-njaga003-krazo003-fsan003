@@ -420,7 +420,7 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                 case 'm':
                     cout << "Returning to folder menu..." << endl;
                     return;
-                    default:
+                default:
                     cout << endl;
                     cout << "Invalid choice! Please try again." << endl;
             }
