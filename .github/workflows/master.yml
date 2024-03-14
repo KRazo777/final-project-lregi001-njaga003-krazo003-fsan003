@@ -16,9 +16,16 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Run a multi-line script
+    - name: Run all Tests
       run: |
       
         cmake .
         make
         ./bin/runAllTests
+
+    - name: Run Valgrind
+      run: |
+
+        g++ -g -O0 src/folder.cpp src/folderManager.cpp src/main.cpp src/note.cpp src/runMenus.cpp -o runProgValgrind
+        valgrind --tool=memcheck --leak-check=yes ./runProgValgrind
+        
