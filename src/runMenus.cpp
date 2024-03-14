@@ -489,6 +489,7 @@ void load (ifstream& readFile, string& userName, FolderManager &listOfFolders){
                     listOfFolders.getFolder(index).createNote(nameOfNote, noteBody, lastEditOfNote);
                     getline(readFile, inputFromFile);
                     getline(readFile, inputFromFile);
+                    getline(readFile, inputFromFile);
                 }
             }
           }

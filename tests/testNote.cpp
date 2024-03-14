@@ -23,3 +23,7 @@ TEST(noteTests, testThatNoteEdit) {
     newNote.setLastEdit();
     EXPECT_FALSE(newNote.getLastEdit() == "0");
 }
+
+// TEST(){
+
+// }
