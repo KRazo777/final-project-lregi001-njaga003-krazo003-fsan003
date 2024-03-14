@@ -27,18 +27,12 @@ void Folder::deleteNote(const string& name) // Deletes a note from the vector an
 
     ListOfNotes.erase(ListOfNotes.begin() + deletePos);
 
-
-    // Delete note from the save file
 };
 
 
 void Folder::AddNotetoFolder(Note& noteToAdd) {
     ListOfNotes.push_back(noteToAdd);
 }
-
-void Folder::addContentToNote(int noteNum, const string& addedContent){
-    ListOfNotes.at(noteNum-1).setBody(ListOfNotes.at(noteNum-1).getBody()+addedContent);
-};
 
 void Folder::printAllNoteTitles(){
     cout << this->getFolderName() << ":" << endl;
@@ -67,7 +61,7 @@ void Folder::setFolderName(const string& name){
     folderName = name;
 }
 
-Note Folder::getNote(int index) {
+Note& Folder::getNote(int index) {
     return ListOfNotes.at(index);
 }
 

@@ -25,10 +25,8 @@ class Folder {
         void createNote(const string& name, const string& body, const string& lastEditOfNote); //might be redundant /unneeded
         void setFolderName(const string& name);
 
-        Note getNote(int index);
-      
+        Note& getNote(int index);
         void deleteNote(const string& name);
-        void addContentToNote(int noteNum, const string& addedContent);
         void printAllNoteTitles();
         unsigned getFolderSize();
         bool empty();

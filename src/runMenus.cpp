@@ -364,7 +364,7 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     userNote = folderToOpen.getNote(userNoteNum - 1); //gets folder object stored at index
                     userNote.printNote();
 
-                    cout << "Enter any additional content to your note. Type the tilde character (~) to enter your additions: " << endl;
+                    cout << "Enter any additional content to your note. Type the tilde character (~) to end your additions: " << endl;
                     getline(cin, userNoteAdditions, '~');
 
                     //statement checks to make sure userNoteBody has at least one character in it 
