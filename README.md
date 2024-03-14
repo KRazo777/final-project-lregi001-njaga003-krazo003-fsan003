@@ -2,6 +2,7 @@
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Notetastic
+[![CI_for_NotesApplication](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/actions/workflows/master.yml/badge.svg)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/actions/workflows/master.yml)
  
  > Authors: [Liam Regina](https://github.com/liamregina), [Nidhi Jagadeesh](https://github.com/n1dh1001), [Kevin Razo](https://github.com/KRazo777), [Francis Miguel San Juan](https://github.com/Mooogy)
 
