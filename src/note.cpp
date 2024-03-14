@@ -36,7 +36,6 @@ void Note::setLastEdit(){
     const auto now = std::chrono::system_clock::now();
     std::time_t edit_time = std::chrono::system_clock::to_time_t(now);
     lastEdit = std::ctime(&edit_time);
-    //fix this, just had to add this so complier stopped complaining
 };
 
 void Note::renameTitle(const string& newName){
