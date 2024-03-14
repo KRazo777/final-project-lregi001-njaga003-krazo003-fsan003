@@ -232,6 +232,7 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
         cout << "New Note (n)" << endl;
         cout << "Delete Note (d)" << endl;
         cout << "Add To Note (a)" << endl;
+        cout << "Rename A Note (r)" << endl;
         cout << "Open Note (o)" << endl;
         cout << "Main Menu (m)" << endl;
         cout << "Enter your choice: ";
@@ -257,7 +258,7 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
 
         // if input is not acceptable
         // still trying to fix issue where if something like "nFolder" is entered it will create folder named Folder
-        if ((userChoiceNoteMenu != 'n') && (userChoiceNoteMenu != 'd') && (userChoiceNoteMenu != 'a') && (userChoiceNoteMenu != 'o') && (userChoiceNoteMenu != 'm') && (userChoiceNoteMenu != 'q')) {
+        if ((userChoiceNoteMenu != 'n') && (userChoiceNoteMenu != 'd') && (userChoiceNoteMenu != 'a') && (userChoiceNoteMenu != 'o') && (userChoiceNoteMenu != 'm') && (userChoiceNoteMenu != 'r') && (userChoiceNoteMenu != 'q')) {
             cout << endl;
             cout << "Invalid choice. Please try again." << endl;
         } 
@@ -387,6 +388,51 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
 
                     userNote.printNote();
                     break;
+
+                case 'r':
+
+                    if (folderToOpen.empty()) // If folder is empty don't allow deletion.
+                    {
+                        cout << "Folder is empty! No notes to rename." << endl;
+                        break;
+                    }
+
+                    folderToOpen.printAllNoteTitles();
+
+                    cout << "Enter the number of the note you want to open: ";
+                    cin.clear(); //make sure there is no garbage input
+                    cin >> userNoteNum;
+
+                    // Make sure what they input is actually an existing number and that cin does not fail
+                    if (cin.fail() || userNoteNum < 1 || userNoteNum > folderToOpen.getFolderSize()) {
+                        cout << endl;
+                        cout << "Invalid number. Renaming Failed." << endl;
+                        cin.clear();
+                        // Ignore the incorrect input so it doesn't stay in cin on new while loop
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        break;
+                    }
+
+                    cin.ignore(); //clears buffer for future inputs
+
+                    userNote = folderToOpen.getNote(userNoteNum - 1); // get note to edit title
+
+                    // Output selected note
+                    userNote.printNote();
+                    cout << endl << "---------------------------------------------------------------------------------" << endl;
+                    cout << "Enter a new title for your note: " << endl;
+                    getline(cin, userNoteName);
+
+                    cout << endl << "Updated note with the title: " << userNoteName << endl;
+
+
+                    userNote.setTitle(userNoteName);
+                    userNote.setLastEdit();
+
+                    folderToOpen.updateNote(userNoteNum - 1, userNote);
+
+                    break;
+
                 case 'o':
 
                     if (folderToOpen.empty()) // If folder is empty don't allow deletion.
