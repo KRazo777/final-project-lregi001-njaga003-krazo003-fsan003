@@ -420,18 +420,16 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     // Output selected note
                     userNote.printNote();
                     cout << endl << "---------------------------------------------------------------------------------" << endl;
-                    cout << "Enter a new title for your note. Type the tilde character (~) to enter your new title: " << endl;
-                    getline(cin, userNoteName, '~');
+                    cout << "Enter a new title for your note: " << endl;
+                    getline(cin, userNoteName);
 
-                    cout << endl << "Updated note with the title: " << userNoteName << "." << endl;
+                    cout << endl << "Updated note with the title: " << userNoteName << endl;
 
 
                     userNote.setTitle(userNoteName);
                     userNote.setLastEdit();
 
                     folderToOpen.updateNote(userNoteNum - 1, userNote);
-
-                    cin.ignore(); //so tilde '~' characther isn't left in input buffer
 
                     break;
 
