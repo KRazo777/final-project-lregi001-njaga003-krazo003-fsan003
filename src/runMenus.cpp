@@ -363,7 +363,7 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     //statement checks to make sure userNoteBody has at least one character in it 
                     // so userNoteBody is not able to be " " or "      "
                     if(userNoteAdditions.empty() || userNoteAdditions.find_first_not_of(' ') == std::string::npos){
-                        cout << "No contents entered for note. Note Creation Canceled." << endl;
+                        cout << "No addtional contents entered for note. Note Additions Canceled." << endl;
                         break;
                     }
 
@@ -426,14 +426,7 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
     }
 }
 
-
-
-void save(const string& infoFileName, FolderManager& listOfFolders) { //
-    //put implementation here
-}
-
-
-void load(ifstream& readFile, string& userName, FolderManager &listOfFolders){
+void load (ifstream& readFile, string& userName, FolderManager &listOfFolders){
     //initialize index for later use
     int index = -1;
     string nameOfNote;
@@ -500,5 +493,67 @@ void load(ifstream& readFile, string& userName, FolderManager &listOfFolders){
     }
 
     readFile.close();
+
+}
+
+void clearFileContents(const string& filename) {
+    // Open the file in truncation mode to clear its contents
+    ofstream clearFS(filename, ofstream::trunc);
+
+    // Check if the file was opened successfully
+    if (!clearFS.is_open()) {
+        cerr << "Error: Failed to open file " << filename << "during clearing operation." << endl;
+        return;
+    }
+
+    // Close the file
+    clearFS.close();
+}
+
+void save(string& userName, string& infoFileName, FolderManager& listOfFolders) { 
+
+    clearFileContents(infoFileName); //clears file to prepare for writing or rewriting data
+
+    ofstream writeFS;
+    writeFS.open(infoFileName);
+
+    // Check if the file stream failed to open
+    if (!writeFS.is_open()) {
+        cerr << "Error: Failed to open the file " << infoFileName << "." << endl;
+        return; // Return an error code indicating failure
+    }
+   
+    writeFS << "username: " << userName << endl << endl;
+
+    for (unsigned i = 0; i < listOfFolders.getListOfFoldersSize(); ++i) {
+        
+        Folder currListOfNotes = listOfFolders.getFolder(i);
+        
+        writeFS << "folder_name: " << currListOfNotes.getFolderName() << endl;
+
+        writeFS << endl << endl;
+        
+        for (unsigned j = 0; j < currListOfNotes.getFolderSize(); ++j) {
+            Note currNote = currListOfNotes.getNote(j);
+
+            writeFS << "~_BEGIN NOTE_~" << endl;
+            writeFS << "note_title: " << currNote.getTitle() << endl;
+            writeFS << "note_body: " << currNote.getBody() << endl;
+            writeFS << "~note_last_edit_time: " << currNote.getLastEdit() << endl;
+            writeFS << "~_END NOTE_~" << endl << endl;
+        }
+
+        writeFS << "*_END FOLDER_*" << endl << endl;
+    }
+    
+    writeFS << "*_*END_OF_ALL_DATA*_*";
+   
+    // After operations, check if the file stream encountered any errors
+    if (writeFS.fail()) {
+        cerr << "Error: File stream encountered an error while reading." << endl;
+        return; // Return an error code indicating failure
+    }
+
+    writeFS.close();
 
 }
