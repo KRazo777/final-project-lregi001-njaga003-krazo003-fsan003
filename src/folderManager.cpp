@@ -14,12 +14,16 @@ void FolderManager::createFolder(const string& name){
     folders.push_back(newFolder);
 };
 
+int FolderManager::getSizeofManager(){
+    return folders.size();
+}
+
 
 bool FolderManager::isEmpty(){
     return folders.empty();
 };
 
-Folder FolderManager::getFolder(int index) {
+Folder &FolderManager::getFolder(int index) {
     return folders.at(index);
 }
 
