@@ -5,7 +5,12 @@ Folder::Folder(const string& name): folderName(name) {};
 
 Folder::~Folder(){};
 
-void Folder::createNote(const string& name){};
+void Folder::createNote(const string& name, const string& body, const string& lastEditOfNote){
+    Note newNote(name, body, lastEditOfNote);
+    ListOfNotes.push_back(newNote);
+
+};
+
 void Folder::deleteNote(const string& name) // Deletes a note from the vector and the save file.
 {
     // Delete note from the note vector
@@ -33,7 +38,9 @@ void Folder::AddNotetoFolder(Note& noteToAdd) {
     ListOfNotes.push_back(noteToAdd);
 }
 
-void Folder::addContentToNote(const string& noteName){};
+void Folder::addContentToNote(int noteNum, const string& addedContent){
+    ListOfNotes.at(noteNum-1).setBody(ListOfNotes.at(noteNum-1).getBody()+addedContent);
+};
 
 void Folder::printAllNoteTitles(){
     cout << this->getFolderName() << ":" << endl;
@@ -196,3 +203,7 @@ void Folder::deleteNoteFromFile(const string& name) // Helper function for the d
     rename("Transfer.txt", "ListOfAllNotes.txt"); // Rename the newly created save file without the note to be deleted
 
 };
+
+void Folder::updateNote(int index, Note& newNote) {
+    ListOfNotes.at(index) = newNote;
+}

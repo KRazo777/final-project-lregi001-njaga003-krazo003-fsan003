@@ -100,10 +100,14 @@ void runFolderMenu(const string& userName, istream& cin){
                     break; 
                 }
 
+                cout << endl;
+
                 //folder is not empty
                 cout << "Enter number for the folder you want to delete: ";
                 cin.clear(); //make sure there is no garbage input
                 cin >> userFolderNum;
+
+                cout << endl;
 
                 // Make sure what they input is actually an existing number and that cin does not fail
                 if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getListOfFoldersSize()){
@@ -327,13 +331,21 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     folderToOpen.deleteNote(folderToOpen.getNote(userNoteNum - 1).getTitle());
 
                     break;
-                case 'a':
+                case 'a': //add to note
+
+                    if (folderToOpen.empty()) // If folder is empty don't allow adding to notes.
+                    {
+                        cout << "Folder is empty! No notes to add to." << endl;
+                        break;
+                    }
+
                     cout << "Choose a note to add to:" << endl << endl;
                     folderToOpen.printAllNoteTitles();
                     
                     cout << "Select the number of the note you want to add to: ";
                     cin.clear(); //make sure there is no garbage input
                     cin >> userNoteNum;
+                    cout << endl;
 
                     // Make sure what they input is actually an existing number and that cin does not fail
                     if (cin.fail() || userNoteNum < 1 || userNoteNum > folderToOpen.getFolderSize()) {
@@ -350,25 +362,25 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     cout << "Current Note Contents: " << endl << endl;
 
                     userNote = folderToOpen.getNote(userNoteNum - 1); //gets folder object stored at index
-
                     userNote.printNote();
 
                     cout << "Enter any additional content to your note. Type the tilde character (~) to enter your additions: " << endl;
-
                     getline(cin, userNoteAdditions, '~');
+
+                    //statement checks to make sure userNoteBody has at least one character in it 
+                    // so userNoteBody is not able to be " " or "      "
+                    if(userNoteAdditions.empty() || userNoteAdditions.find_first_not_of(' ') == std::string::npos){
+                        cout << "No addtional contents entered for note. Note Additions Canceled." << endl;
+                        break;
+                    }
 
                     userNote.setBody(userNote.getBody() + userNoteAdditions);
 
                     userNote.setLastEdit();
 
-                    cin.ignore(); //so tilde '~' characther isn't left in input buffer
+                    folderToOpen.updateNote(userNoteNum - 1, userNote);
 
-                    //statement checks to make sure userNoteBody has at least one character in it 
-                    // so userNoteBody is not able to be " " or "      "
-                    if(userNoteBody.find_first_not_of(' ') == std::string::npos){
-                        cout << "No contents entered for note. Note Creation Canceled." << endl;
-                        break;
-                    }
+                    cin.ignore(); //so tilde '~' characther isn't left in input buffer
 
                     cout << endl;   
 
@@ -421,76 +433,134 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
     }
 }
 
+void load (ifstream& readFile, string& userName, FolderManager &listOfFolders){
+    //initialize index for later use
+    int index = -1;
+    string nameOfNote;
+    string noteBody;
+    string lastEditOfNote;
 
+    if (readFile.is_open()) {
+        string inputFromFile;
+        string substr;
 
-void save(const string& infoFileName, FolderManager& listOfFolders) { //
-    //put implementation here
+        //get username 
+        getline(readFile, inputFromFile);
+        inputFromFile.erase(0, 10);
+        userName = inputFromFile;
+
+        //read file till end of file reached
+        while (!readFile.eof()) {
+        
+            getline(readFile, inputFromFile); 
+            if(inputFromFile == "*_BEGIN FOLDER_*"){
+
+                getline(readFile, inputFromFile);
+                if(inputFromFile.substr(0, 12) == "folder_name:"){
+                inputFromFile.erase(0, 13);
+                listOfFolders.createFolder(inputFromFile);
+                //increment when new file added
+                index++;
+                }
+
+                getline(readFile, inputFromFile);
+                getline(readFile, inputFromFile);
+
+                while(inputFromFile == "~_BEGIN NOTE_~"){
+                    getline(readFile, inputFromFile);
+                    if(inputFromFile.substr(0, 11) == "note_title:"){
+                        inputFromFile.erase(0, 12);
+                        nameOfNote = inputFromFile;
+                    }
+
+                    getline(readFile, inputFromFile, '~' );
+                    if(inputFromFile.substr(0, 10) == "note_body:"){
+                        inputFromFile.erase(0, 11);
+                        noteBody = inputFromFile;
+                
+                    }
+                    getline(readFile, inputFromFile);
+                    if(inputFromFile.substr(0,20) == "note_last_edit_time:"){
+                        inputFromFile.erase(0,21);
+                        lastEditOfNote = inputFromFile;
+                    }
+                    
+                    
+                    listOfFolders.getFolder(index).createNote(nameOfNote, noteBody, lastEditOfNote);
+                    getline(readFile, inputFromFile);
+                    getline(readFile, inputFromFile);
+                }
+            }
+          }
+        }
+
+    else{
+        cout<<"File was unable to open";
+        return;
+    }
+
+    readFile.close();
+
 }
 
+void clearFileContents(const string& filename) {
+    // Open the file in truncation mode to clear its contents
+    ofstream clearFS(filename, ofstream::trunc);
 
-// void load(const string& infoFileName){
-//     ifstream readFile("readFrom.txt");
+    // Check if the file was opened successfully
+    if (!clearFS.is_open()) {
+        cerr << "Error: Failed to open file " << filename << "during clearing operation." << endl;
+        return;
+    }
 
-//     if (readFile.is_open()) {
-//         string inputFromFile;
-//         string substr;
-//         //getline(readFile, inputFromFile);
-//         //userName is not a variable can access here
-//         while (!readFile.eof()) {
-//           getline(readFile, inputFromFile); 
-//           if(inputFromFile == "*_BEGIN FOLDER_*"){
-//             getline(readFile, inputFromFile);
-//             if(inputFromFile.substr(0, 12) == "folder_name:"){
-//               inputFromFile.erase(0, 13);
-//               //Folder newFolder(inputFromFile);
-//               //folderManager.push_back(newFolder);
-//             }
-//             getline(readFile, inputFromFile);
-//             if(inputFromFile.substr(0, 18) == "ListOfNotes_vector:"){
-//               inputFromFile.erase(0, 19);
-//               stringstream s_stream(inputFromFile);
+    // Close the file
+    clearFS.close();
+}
 
-//               while(s_stream.good()){
-//                 getline(s_stream, substr, ',');
-//                 Note newNote(substr);
-//                 folderManager.back().push_back(substr);
-//               }
-//             }
-//             getline(readFile, inputFromFile);
-//             getline(readFile, inputFromFile);
-//             while(inputFromFile == "~_BEGIN NOTE_~"){
-//               getline(readFile, inputFromFile);
-//               if(inputFromFile.substr(0, 11) == "note_title:"){
-//                 inputFromFile.erase(0, 12);
-//                 nameOfNote = inputFromFile;
-//                 //find vector index
-//                 //v3.push_back(inputFromFile);
-//                 getline(readFile, inputFromFile, '~' );
-//                 if(inputFromFile.substr(0, 10) == "note_body:"){
-//                   inputFromFile.erase(0, 11);
-//                   bodyOfNote = inputFromFile;
-                
-//                 }
-//                 getline(readFile, inputFromFile);
-//                 if(inputFromFile.substr(0,20) == "note_last_edit_time:"){
-//                   inputFromFile.erase(0,21);
-//                   lastEditOfNote = inputFromFile;
-//                   //add string time
-//                 }
+void save(string& userName, string& infoFileName, FolderManager& listOfFolders) { 
 
-//               }
-//                 getline(readFile, inputFromFile);
-//                 getline(readFile, inputFromFile);
-//               }
-//             }
-//           }
-//         }
+    clearFileContents(infoFileName); //clears file to prepare for writing or rewriting data
 
-//         readFile.close();
-//     }
-//     else{
-//         cout<<"File was unnable to open";
-//         return 0;
-//     }
+    ofstream writeFS;
+    writeFS.open(infoFileName);
 
-// }
+    // Check if the file stream failed to open
+    if (!writeFS.is_open()) {
+        cerr << "Error: Failed to open the file " << infoFileName << "." << endl;
+        return; // Return an error code indicating failure
+    }
+   
+    writeFS << "username: " << userName << endl << endl;
+
+    for (unsigned i = 0; i < listOfFolders.getListOfFoldersSize(); ++i) {
+        
+        Folder currListOfNotes = listOfFolders.getFolder(i);
+        
+        writeFS << "folder_name: " << currListOfNotes.getFolderName() << endl;
+
+        writeFS << endl << endl;
+        
+        for (unsigned j = 0; j < currListOfNotes.getFolderSize(); ++j) {
+            Note currNote = currListOfNotes.getNote(j);
+
+            writeFS << "~_BEGIN NOTE_~" << endl;
+            writeFS << "note_title: " << currNote.getTitle() << endl;
+            writeFS << "note_body: " << currNote.getBody() << endl;
+            writeFS << "~note_last_edit_time: " << currNote.getLastEdit() << endl;
+            writeFS << "~_END NOTE_~" << endl << endl;
+        }
+
+        writeFS << "*_END FOLDER_*" << endl << endl;
+    }
+    
+    writeFS << "*_*END_OF_ALL_DATA*_*";
+   
+    // After operations, check if the file stream encountered any errors
+    if (writeFS.fail()) {
+        cerr << "Error: File stream encountered an error while reading." << endl;
+        return; // Return an error code indicating failure
+    }
+
+    writeFS.close();
+
+}

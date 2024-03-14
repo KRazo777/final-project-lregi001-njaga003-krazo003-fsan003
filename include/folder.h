@@ -22,17 +22,18 @@ class Folder {
 
         const string& getFolderName();
         void AddNotetoFolder(Note& noteToAdd);
-        void createNote(const string& name); //might be redundant /unneeded
+        void createNote(const string& name, const string& body, const string& lastEditOfNote); //might be redundant /unneeded
         void setFolderName(const string& name);
 
         Note getNote(int index);
       
         void deleteNote(const string& name);
-        void addContentToNote(const string& noteName);
+        void addContentToNote(int noteNum, const string& addedContent);
         void printAllNoteTitles();
         unsigned getFolderSize();
         bool empty();
         bool noteExists(const string& name);
+        void updateNote(int index, Note& newNote);
 
     private:
         void deleteNoteFromFile(const string& name); // Helper function for the deleteNote method. Handles deleting the note from the save file.
