@@ -29,8 +29,6 @@ void Folder::deleteNote(const string& name) // Deletes a note from the vector an
 
 
     // Delete note from the save file
-
-    deleteNoteFromFile(name);
 };
 
 
