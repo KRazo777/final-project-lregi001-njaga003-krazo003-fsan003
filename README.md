@@ -80,7 +80,13 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
+ To begin using Notetastic, we'll be cloning the repository into our own IDE, like VSCode. With the IDE of your choice, <br>
+ in the terminal type: `git clone --recursive https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003.git`
+ <br> <br>
+ Next, we'll be using cmake and make to construct the Notetastic executable. In the terminal, type `cmake .` and use `make` to build the executable.
+ <br> <br>
+ Now that our executable has been built! <br>
+ We can run Notetastic by typing `./bin/runProgram` in the terminal and begin writing all the notes we'll ever need!
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
