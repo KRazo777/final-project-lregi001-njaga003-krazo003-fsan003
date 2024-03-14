@@ -4,10 +4,16 @@
 #include "../include/runMenus.h"
 #include "gtest/gtest.h"
 
+
 // Tests should be written here
 TEST(folderTests, testNoThrow) {
     EXPECT_NO_THROW( Folder("exampleFolder") );
 }
+
+TEST(folderTests, testConstructor){
+    EXPECT_NO_THROW(Folder testFolder1);
+}
+
 
 // Initialize GTest
 int mainTest(int argc, char **argv) {

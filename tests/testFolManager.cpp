@@ -15,6 +15,11 @@ TEST(folderManagerTests, testNoThrow) {
      );
 }
 
+TEST(folderManagerTests, testConstructor){
+    EXPECT_NO_THROW(FolderManager myManager);
+    
+}
+
 // IsEmpty() / createFolder() / deleteFolder() TESTS-------------------------------------------------
 // empty Folders Vector
 TEST(folderManagerTests, testIsEmptyTrue) {

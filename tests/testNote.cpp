@@ -13,6 +13,26 @@ TEST(noteTests, testNoThrow) {
     "0") );
 }
 
+TEST(noteTests, testNoteConstructor) {
+
+    ASSERT_NO_THROW(Note testNote1);
+    ASSERT_NO_THROW(Note testNote2("note title", "my note body", "2/5/23 - 06:30:40"));
+
+    Note testNote1;
+    EXPECT_EQ(testNote1.getTitle(), "Untitled Note");
+    EXPECT_EQ(testNote1.getBody(), "Insert Note Content Here");
+    EXPECT_EQ(testNote1.getLastEdit(), "0");
+
+    Note testNote2("note title", "my note body", "2/5/23 - 06:30:40");
+    EXPECT_EQ(testNote2.getTitle(), "note title");
+    EXPECT_EQ(testNote2.getBody(), "my note body");
+    EXPECT_EQ(testNote2.getLastEdit(), "2/5/23 - 06:30:40");  
+
+
+
+}
+
+
 // Initialize GTest
 int mainTest3(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
