@@ -50,15 +50,14 @@ void FolderManager::deleteFolder(const int& fileNum){
 
     if (folderExists(fileNum)){
         //get the name of the file we will delete
-        string deletedFile = folders.at(fileNum-1).getFolderName();
+        string deletedFolder = folders.at(fileNum-1).getFolderName();
 
 
         //delete the file
         folders.erase(folders.begin() + (fileNum - 1));
 
-
         //Confirm message about file being deleted
-        cout << "File '" << deletedFile << "' deleted" << endl;
+        cout << "Folder '" << deletedFolder << "' deleted" << endl;
     } else {
         cout << "Invalid file number." << endl;
     }
