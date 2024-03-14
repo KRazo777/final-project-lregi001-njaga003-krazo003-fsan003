@@ -101,10 +101,14 @@ void runFolderMenu(const string& userName){
                     break; 
                 }
 
+                cout << endl;
+
                 //folder is not empty
                 cout << "Enter number for the folder you want to delete: ";
                 cin.clear(); //make sure there is no garbage input
                 cin >> userFolderNum;
+
+                cout << endl;
 
                 // Make sure what they input is actually an existing number and that cin does not fail
                 if (cin.fail() || userFolderNum < 1 || userFolderNum > folderMenu.getListOfFoldersSize()){
@@ -174,8 +178,6 @@ void runFolderMenu(const string& userName){
                 userFolder = folderMenu.getFolder(userFolderNum - 1); //gets folder object stored at index
 
                 cout << endl;
-
-                cout << userFolder.getFolderName() << ":" << endl << endl;
 
                 userFolder.printAllNoteTitles();
 
@@ -330,13 +332,14 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     folderToOpen.deleteNote(folderToOpen.getNote(userNoteNum - 1).getTitle());
 
                     break;
-                case 'a':
+                case 'a': //add to note
                     cout << "Choose a note to add to:" << endl << endl;
                     folderToOpen.printAllNoteTitles();
                     
                     cout << "Select the number of the note you want to add to: ";
                     cin.clear(); //make sure there is no garbage input
                     cin >> userNoteNum;
+                    cout << endl;
 
                     // Make sure what they input is actually an existing number and that cin does not fail
                     if (cin.fail() || userNoteNum < 1 || userNoteNum > folderToOpen.getFolderSize()) {
@@ -360,18 +363,20 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
 
                     getline(cin, userNoteAdditions, '~');
 
+                    //statement checks to make sure userNoteBody has at least one character in it 
+                    // so userNoteBody is not able to be " " or "      "
+                    if(userNoteAdditions.empty() || userNoteAdditions.find_first_not_of(' ') == std::string::npos){
+                        cout << "No contents entered for note. Note Creation Canceled." << endl;
+                        break;
+                    }
+
                     userNote.setBody(userNote.getBody() + userNoteAdditions);
 
                     userNote.setLastEdit();
 
-                    cin.ignore(); //so tilde '~' characther isn't left in input buffer
+                    folderToOpen.updateNote(userNoteNum - 1, userNote);
 
-                    //statement checks to make sure userNoteBody has at least one character in it 
-                    // so userNoteBody is not able to be " " or "      "
-                    if(userNoteBody.find_first_not_of(' ') == std::string::npos){
-                        cout << "No contents entered for note. Note Creation Canceled." << endl;
-                        break;
-                    }
+                    cin.ignore(); //so tilde '~' characther isn't left in input buffer
 
                     cout << endl;   
 

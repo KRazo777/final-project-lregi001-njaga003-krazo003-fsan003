@@ -33,6 +33,7 @@ class Folder {
         unsigned getFolderSize();
         bool empty();
         bool noteExists(const string& name);
+        void updateNote(int index, Note& newNote);
 
     private:
         void deleteNoteFromFile(const string& name); // Helper function for the deleteNote method. Handles deleting the note from the save file.

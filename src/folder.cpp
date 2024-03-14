@@ -195,3 +195,7 @@ void Folder::deleteNoteFromFile(const string& name) // Helper function for the d
     rename("Transfer.txt", "ListOfAllNotes.txt"); // Rename the newly created save file without the note to be deleted
 
 };
+
+void Folder::updateNote(int index, Note& newNote) {
+    ListOfNotes.at(index) = newNote;
+}
