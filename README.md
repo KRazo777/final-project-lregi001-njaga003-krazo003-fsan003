@@ -1,19 +1,7 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Notetastic
- > Your author list below should include links to all members GitHub (remove existing author).
+[![CI_for_NotesApplication](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/actions/workflows/master.yml/badge.svg)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/actions/workflows/master.yml)
  
  > Authors: [Liam Regina](https://github.com/liamregina), [Nidhi Jagadeesh](https://github.com/n1dh1001), [Kevin Razo](https://github.com/KRazo777), [Francis Miguel San Juan](https://github.com/Mooogy)
-
- > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
-
- > ## Expectations
- > * The backend of your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * **Each member of the group must actively participate in the Github Project board, writing unit tests, and reviewing commited code.**
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
 
@@ -59,7 +47,7 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
 
 
 ## Class Diagram
->![ClassDiagram (1)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/103863739/a24eba53-b0db-43a7-bdfa-93cfd7e97588)
+>![ClassDiagram drawio (3)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/156025210/8a3a7958-1feb-406e-8733-1db7b00bae26)
 
   Our main class acts as an start of the program, where users intially enter their username and are then taken to the folder menu. It is here where they will be able to manage and create their collection of folders. The runMenus class is responsible for running the menus of our program, which is the primary method the user utilizes to interact with the program. These menus display a GUI for the user in order for them to swiftly decide how they may want to manage their folders (using the Folder Menu) or notes (using the Notes Menu). The folder menu allows the user to control the amount of folders they have, change names of folders, as well as being able to open these folders and create notes in each individual folder. Within the notes menu, the user is given the ability to manage their notes within each respective folder, add to notes, or view their created notes.
  <br> The Notes class is an object class that manages what is inside of a singular note. This includes writing to a note as well as making sure the time of last edit is updated. It is where all actions that can be taken on note as well as helper functions are implemented. 
@@ -67,18 +55,33 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
  <br> The Folder Manager class contains folders within it and is what is used to manage all the folders that are contained within.
 <br> Solid principles that we applied included Single Responsibility which is shown throughout addition to the Folder Manager Class. We noticed that our Folder class was assigned with many tasks that didn’t align with only one singular goal, so we separated it into a Folder Class and a separate class that manages our folders called FolderManager. This helps us write better code as because each class follows the single responsibility principle, it makes our code easier to implement as well as prevent any bugs or unexpected changes in the future to be limited rather than spread throughout. 
 
- > ## Phase III
-
-
  > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ### After Logging In...
+ ![image](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/006dd721-45c4-42f5-a337-dd98e54cb39c)
+ ### Making a New Folder
+![image2](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/95277325-3af1-43d9-8dd5-263163932396)
+![image3](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/2e76682b-e62e-4dfc-a20b-99dc934a7889)
+### Making a New Note
+![image4](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/f9435e9b-de98-4ed9-8d9e-0574c11e86fd)
+![image5](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/0850c6b4-000f-4d37-bae7-c8ade6fa44ec)
+### Adding to a New Note
+![image6](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/08aa6ddf-8dd0-4db5-9c9e-d1e0d46c878a)
+![image7](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/1e7159c0-ff2e-4936-838a-5d5733ee4cea)
+### Deleting a Note
+![image8](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/126de1a6-a029-457f-966e-01973f205f38)
+![image9](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/213fd86e-3745-4647-a614-c0796120a364)
+### Renaming a Folder
+![image10](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/2209505e-199c-4da4-b8ed-5f2877b44019)
+![image11](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/d9f7e656-0348-432c-bea8-d9b21af85430)
+### Deleting a Folder
+![image12](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/0293dc3e-5026-4d5b-b1d5-3f94375ab544)
+![image13](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/f0e6f928-df8d-4d17-94ba-eff110030354)
+### Quitting The Program
+![image14](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/7b1f7b09-940a-4bba-8f16-c125394a446c)
+![image15](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/102709181/cba6dde0-5412-4a6a-a543-72b875bde739)
+
  ## Installation/Usage
  To begin using Notetastic, we'll be cloning the repository into our own IDE, like VSCode. With the IDE of your choice, <br>
  in the terminal type: `git clone --recursive https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003.git`
@@ -88,5 +91,8 @@ Features: Some of our features include adding, editing, and deleting notes. Anot
  Now that our executable has been built! <br>
  We can run Notetastic by typing `./bin/runProgram` in the terminal and begin writing all the notes we'll ever need!
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+Notetastic’s functionality was validated through the use of continuous integration, in which we triggered a build every time we would open a pull request or merge a pull request into our default branch. This build would run all of our tests, which would verify that a pull request was satisfactory for merging and that we could catch any errors that may have appeared from adding new code or functions. This build used a variety of tests for every class that we implemented, ensuring that we accounted for as many types of user input as we could. If a pull request did not pass the build, we would debug on the branch of the pull request and make sure we made the necessary commits so that the build would pass, allowing us to review and eventually approve the pull request. This process made our debugging process a lot more efficient and allowed us to rapidly deploy crucial implementations or fixes.
+### Memcheck-Clean
+<img width="888" alt="Screenshot 2024-03-14 at 2 49 08 AM" src="https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/assets/103863739/4e3f8fdb-b730-476e-9b32-577385d669c7">
+
  

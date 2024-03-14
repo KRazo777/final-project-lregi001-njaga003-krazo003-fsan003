@@ -26,6 +26,7 @@ void Folder::deleteNote(const string& name) // Deletes a note from the vector an
     }
 
     ListOfNotes.erase(ListOfNotes.begin() + deletePos);
+
 };
 
 

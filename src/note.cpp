@@ -38,11 +38,6 @@ void Note::setLastEdit(){
     lastEdit = std::ctime(&edit_time);
 };
 
-void Note::renameTitle(const string& newName){
-    title = newName;
-    setLastEdit();
-};
-
 void Note::printNote() { //output Note contents
 
     cout << setw(99) << setfill('-') << '-' << endl;
@@ -50,39 +45,4 @@ void Note::printNote() { //output Note contents
     cout << setw(99) << setfill('-') << '-' << endl;
     
     cout << this->getBody() << endl;
-}
-
-void Note::addToNote() {
-    // cout << "Contents of Current Note:" << endl << endl;
-    // this->printNote();
-    // cout << ""
-
-}
-
-int Note::writeNoteToFile() { //THIS FUNCTION MAY BE DELETED IN THE FUTURE with some of this code being utilized in a "save" function
-    ofstream writeFS;
-    writeFS.open("ListOfAllNotes.txt");
-
-    // Check if the file stream failed to open
-    if (!writeFS.is_open()) {
-        cerr << "Error: Failed to open the file ListOfAllNotes.txt" << endl;
-        return 1; // Return an error code indicating failure
-    }
-   
-    writeFS << "~BEGIN NOTE" << endl;
-    writeFS << "note_title: " << this->getTitle() << endl;
-    writeFS << "note_lastEditTime: " << this->getLastEdit() << endl;
-    writeFS << "note_body: " << this->getBody() << endl;
-    writeFS << "~END NOTE" << endl << endl;
-   
-    // After operations, check if the file stream encountered any errors
-    if (writeFS.fail()) {
-        cerr << "Error: File stream encountered an error while reading." << endl;
-        return 1; // Return an error code indicating failure
-    }
-
-    writeFS.close();
-    setLastEdit();
-
-    return 0;
 }

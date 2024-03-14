@@ -5,3 +5,6 @@ bin/
 lib/
 cmake_install.cmake
 runProgValgrind
+googletest-build/
+googletest-download/
+googletest-src/
