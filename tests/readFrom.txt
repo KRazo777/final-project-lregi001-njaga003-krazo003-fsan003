@@ -1,0 +1,30 @@
+username: joseph joseph
+
+*_BEGIN FOLDER_*
+folder_name: Instruments
+
+~_BEGIN NOTE_~
+note_title: Violin
+note_body: string instrument, 4 strings; has a e, a, g, d string
+~note_last_edit_time: 03-06-2024 - 12:36:23
+~_END NOTE_~
+*_END FOLDER_*
+
+*_BEGIN FOLDER_*
+folder_name: Cheese Types
+
+~_BEGIN NOTE_~
+note_title: Mozzarella
+note_body: -mild, semisoft white itialian Cheese
+-used in pizza, pasta and similar dishes
+-good as a melting topping
+~note_last_edit_time: 03-06-2024 - 12:36:23
+
+~_BEGIN NOTE_~
+note_title: Cheddar
+note_body: -cheddar cheeeeese yum
+~note_last_edit_time: 03-06-2024 - 12:36:23
+
+~_END NOTE_~
+*_END FOLDER_*
+*_*END_OF_ALL_DATA*_*

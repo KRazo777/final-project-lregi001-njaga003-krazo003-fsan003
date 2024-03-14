@@ -325,14 +325,14 @@ void runNotesMenu(Folder& folderToOpen) { //similar to folder menu but for notes
                     cout << "Current Note Contents: " << endl << endl;
 
                     userNote = folderToOpen.getNote(userNoteNum - 1); //gets folder object stored at index
-
                     userNote.printNote();
 
                     cout << "Enter any additional content to your note. Type the tilde character (~) to enter your additions: " << endl;
-
                     getline(cin, userNoteAdditions, '~');
 
-                    userNote.setBody(userNote.getBody() + userNoteAdditions);
+                    // userNote.setBody(userNote.getBody() + userNoteAdditions);
+                    folderToOpen.addContentToNote(userNoteNum, userNoteAdditions);
+                    userNoteBody = userNote.getBody() + userNoteAdditions;
 
                     userNote.setLastEdit();
 
@@ -396,69 +396,72 @@ void save(const string& infoFileName, FolderManager& listOfFolders) { //
 }
 
 
-// void load(const string& infoFileName){
-//     ifstream readFile("readFrom.txt");
+void load(ifstream& readFile, string& userName, FolderManager &listOfFolders){
+    //initialize index for later use
+    int index = -1;
+    string nameOfNote;
+    string noteBody;
+    string lastEditOfNote;
 
-//     if (readFile.is_open()) {
-//         string inputFromFile;
-//         string substr;
-//         //getline(readFile, inputFromFile);
-//         //userName is not a variable can access here
-//         while (!readFile.eof()) {
-//           getline(readFile, inputFromFile); 
-//           if(inputFromFile == "*_BEGIN FOLDER_*"){
-//             getline(readFile, inputFromFile);
-//             if(inputFromFile.substr(0, 12) == "folder_name:"){
-//               inputFromFile.erase(0, 13);
-//               //Folder newFolder(inputFromFile);
-//               //folderManager.push_back(newFolder);
-//             }
-//             getline(readFile, inputFromFile);
-//             if(inputFromFile.substr(0, 18) == "ListOfNotes_vector:"){
-//               inputFromFile.erase(0, 19);
-//               stringstream s_stream(inputFromFile);
+    if (readFile.is_open()) {
+        string inputFromFile;
+        string substr;
 
-//               while(s_stream.good()){
-//                 getline(s_stream, substr, ',');
-//                 Note newNote(substr);
-//                 folderManager.back().push_back(substr);
-//               }
-//             }
-//             getline(readFile, inputFromFile);
-//             getline(readFile, inputFromFile);
-//             while(inputFromFile == "~_BEGIN NOTE_~"){
-//               getline(readFile, inputFromFile);
-//               if(inputFromFile.substr(0, 11) == "note_title:"){
-//                 inputFromFile.erase(0, 12);
-//                 nameOfNote = inputFromFile;
-//                 //find vector index
-//                 //v3.push_back(inputFromFile);
-//                 getline(readFile, inputFromFile, '~' );
-//                 if(inputFromFile.substr(0, 10) == "note_body:"){
-//                   inputFromFile.erase(0, 11);
-//                   bodyOfNote = inputFromFile;
+        //get username 
+        getline(readFile, inputFromFile);
+        inputFromFile.erase(0, 10);
+        userName = inputFromFile;
+
+        //read file till end of file reached
+        while (!readFile.eof()) {
+        
+            getline(readFile, inputFromFile); 
+            if(inputFromFile == "*_BEGIN FOLDER_*"){
+
+                getline(readFile, inputFromFile);
+                if(inputFromFile.substr(0, 12) == "folder_name:"){
+                inputFromFile.erase(0, 13);
+                listOfFolders.createFolder(inputFromFile);
+                //increment when new file added
+                index++;
+                }
+
+                getline(readFile, inputFromFile);
+                getline(readFile, inputFromFile);
+
+                while(inputFromFile == "~_BEGIN NOTE_~"){
+                    getline(readFile, inputFromFile);
+                    if(inputFromFile.substr(0, 11) == "note_title:"){
+                        inputFromFile.erase(0, 12);
+                        nameOfNote = inputFromFile;
+                    }
+
+                    getline(readFile, inputFromFile, '~' );
+                    if(inputFromFile.substr(0, 10) == "note_body:"){
+                        inputFromFile.erase(0, 11);
+                        noteBody = inputFromFile;
                 
-//                 }
-//                 getline(readFile, inputFromFile);
-//                 if(inputFromFile.substr(0,20) == "note_last_edit_time:"){
-//                   inputFromFile.erase(0,21);
-//                   lastEditOfNote = inputFromFile;
-//                   //add string time
-//                 }
+                    }
+                    getline(readFile, inputFromFile);
+                    if(inputFromFile.substr(0,20) == "note_last_edit_time:"){
+                        inputFromFile.erase(0,21);
+                        lastEditOfNote = inputFromFile;
+                    }
+                    
+                    
+                    listOfFolders.getFolder(index).createNote(nameOfNote, noteBody, lastEditOfNote);
+                    getline(readFile, inputFromFile);
+                    getline(readFile, inputFromFile);
+                }
+            }
+          }
+        }
 
-//               }
-//                 getline(readFile, inputFromFile);
-//                 getline(readFile, inputFromFile);
-//               }
-//             }
-//           }
-//         }
+    else{
+        cout<<"File was unable to open";
+        return;
+    }
 
-//         readFile.close();
-//     }
-//     else{
-//         cout<<"File was unnable to open";
-//         return 0;
-//     }
+    readFile.close();
 
-// }
+}
