@@ -440,20 +440,24 @@ void load (ifstream& readFile, string& userName, FolderManager &listOfFolders){
     string noteBody;
     string lastEditOfNote;
 
+
     if (readFile.is_open()) {
         string inputFromFile;
         string substr;
 
-        //get username 
+
+        //get username
         getline(readFile, inputFromFile);
         inputFromFile.erase(0, 10);
         userName = inputFromFile;
 
+
         //read file till end of file reached
         while (!readFile.eof()) {
-        
-            getline(readFile, inputFromFile); 
+       
+            getline(readFile, inputFromFile);
             if(inputFromFile == "*_BEGIN FOLDER_*"){
+
 
                 getline(readFile, inputFromFile);
                 if(inputFromFile.substr(0, 12) == "folder_name:"){
@@ -463,8 +467,10 @@ void load (ifstream& readFile, string& userName, FolderManager &listOfFolders){
                 index++;
                 }
 
+
                 getline(readFile, inputFromFile);
                 getline(readFile, inputFromFile);
+
 
                 while(inputFromFile == "~_BEGIN NOTE_~"){
                     getline(readFile, inputFromFile);
@@ -473,19 +479,20 @@ void load (ifstream& readFile, string& userName, FolderManager &listOfFolders){
                         nameOfNote = inputFromFile;
                     }
 
+
                     getline(readFile, inputFromFile, '~' );
                     if(inputFromFile.substr(0, 10) == "note_body:"){
                         inputFromFile.erase(0, 11);
                         noteBody = inputFromFile;
-                
+               
                     }
                     getline(readFile, inputFromFile);
                     if(inputFromFile.substr(0,20) == "note_last_edit_time:"){
                         inputFromFile.erase(0,21);
                         lastEditOfNote = inputFromFile;
                     }
-                    
-                    
+                   
+                   
                     listOfFolders.getFolder(index).createNote(nameOfNote, noteBody, lastEditOfNote);
                     getline(readFile, inputFromFile);
                     getline(readFile, inputFromFile);
@@ -495,18 +502,23 @@ void load (ifstream& readFile, string& userName, FolderManager &listOfFolders){
           }
         }
 
+
     else{
         cout<<"File was unable to open";
         return;
     }
 
+
     readFile.close();
 
+
 }
+
 
 void clearFileContents(const string& filename) {
     // Open the file in truncation mode to clear its contents
     ofstream clearFS(filename, ofstream::trunc);
+
 
     // Check if the file was opened successfully
     if (!clearFS.is_open()) {
@@ -514,16 +526,21 @@ void clearFileContents(const string& filename) {
         return;
     }
 
+
     // Close the file
     clearFS.close();
 }
 
-void save(string& userName, string& infoFileName, FolderManager& listOfFolders) { 
+
+void save(string& userName, string& infoFileName, FolderManager& listOfFolders) {
+
 
     clearFileContents(infoFileName); //clears file to prepare for writing or rewriting data
 
+
     ofstream writeFS;
     writeFS.open(infoFileName);
+
 
     // Check if the file stream failed to open
     if (!writeFS.is_open()) {
@@ -533,16 +550,19 @@ void save(string& userName, string& infoFileName, FolderManager& listOfFolders) 
    
     writeFS << "username: " << userName << endl << endl;
 
+
     for (unsigned i = 0; i < listOfFolders.getListOfFoldersSize(); ++i) {
-        
+       
         Folder currListOfNotes = listOfFolders.getFolder(i);
-        
+       
         writeFS << "folder_name: " << currListOfNotes.getFolderName() << endl;
 
+
         writeFS << endl << endl;
-        
+       
         for (unsigned j = 0; j < currListOfNotes.getFolderSize(); ++j) {
             Note currNote = currListOfNotes.getNote(j);
+
 
             writeFS << "~_BEGIN NOTE_~" << endl;
             writeFS << "note_title: " << currNote.getTitle() << endl;
@@ -551,9 +571,10 @@ void save(string& userName, string& infoFileName, FolderManager& listOfFolders) 
             writeFS << "~_END NOTE_~" << endl << endl;
         }
 
+
         writeFS << "*_END FOLDER_*" << endl << endl;
     }
-    
+   
     writeFS << "*_*END_OF_ALL_DATA*_*";
    
     // After operations, check if the file stream encountered any errors
@@ -562,6 +583,8 @@ void save(string& userName, string& infoFileName, FolderManager& listOfFolders) 
         return; // Return an error code indicating failure
     }
 
+
     writeFS.close();
+
 
 }
