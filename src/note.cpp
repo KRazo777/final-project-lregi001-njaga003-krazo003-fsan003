@@ -39,11 +39,6 @@ void Note::setLastEdit(){
     //fix this, just had to add this so complier stopped complaining
 };
 
-void Note::renameTitle(const string& newName){
-    title = newName;
-    setLastEdit();
-};
-
 void Note::printNote() { //output Note contents
 
     cout << setw(99) << setfill('-') << '-' << endl;
@@ -53,12 +48,6 @@ void Note::printNote() { //output Note contents
     cout << this->getBody() << endl;
 }
 
-void Note::addToNote() {
-    // cout << "Contents of Current Note:" << endl << endl;
-    // this->printNote();
-    // cout << ""
-
-}
 
 int Note::writeNoteToFile() { //THIS FUNCTION MAY BE DELETED IN THE FUTURE with some of this code being utilized in a "save" function
     ofstream writeFS;
