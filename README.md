@@ -1,3 +1,5 @@
+> Note: This repo has been mirrored from the original git repo since the original was under ownership of UCR and was going to be reset. As a result the original project board, pull requests, and issues tabs were reset.
+
 # Notetastic
 [![CI_for_NotesApplication](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/actions/workflows/master.yml/badge.svg)](https://github.com/cs100/final-project-lregi001-njaga003-krazo003-fsan003/actions/workflows/master.yml)
  
